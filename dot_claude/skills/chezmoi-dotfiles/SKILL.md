@@ -113,6 +113,20 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Cyberoiide
 Then recreate `~/.config/zsh/secrets.zsh` by hand (it's not in the repo) with the
 current rotated tokens.
 
+### System files chezmoi can't track (`/etc`, out of `$HOME`)
+chezmoi only manages paths under `$HOME` — `chezmoi target-path /etc/...` errors
+with "not in ~/.local/share/chezmoi". Anything outside home needs manual redo on a
+new machine. Current one:
+
+- **pam_faillock disabled** in `/etc/pam.d/system-auth` (all 3 `pam_faillock.so`
+  lines commented out) — prevents soft-locking yourself out after N wrong
+  passwords at gtklock/login/sudo. Re-apply on a new machine:
+  ```bash
+  sudo sed -i -E 's/^(auth.*pam_faillock\.so.*)$/# \1/' /etc/pam.d/system-auth
+  ```
+  Note: a `pambase` package update can silently restore the original file —
+  re-check this after major system upgrades.
+
 ## Verify before pushing (checklist)
 1. Secret scan prints `CLEAN`.
 2. `git status` shows only intended files; no app-state dirs or binaries.
