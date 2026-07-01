@@ -56,13 +56,35 @@ chezmoi apply             # writes changes back to ~/.zshrc
 ### What NOT to add
 `~/.config` holds app state and caches, not just config. Do **not** add:
 - App state/caches: browsers (`BraveSoftware`, `mozilla`, `microsoft-edge`),
-  `Code - OSS`, `Claude`, `spotify`, `chezmoi` itself
+  `Code - OSS`, `~/.config/Claude` (Claude **Desktop** app cache, 600M+),
+  `spotify`, `chezmoi` itself
 - Secret stores: `gh/`, `glab-cli/`, `netbird/`
 - Binaries / runtime state: wallpaper PNGs, `go/telemetry`, log files
 
 When adding a directory that pulls in junk, remove it from the source afterward
 (`rm` inside `~/.local/share/chezmoi/dot_config/...`) and add a matching rule to
 `.chezmoiignore` so `apply` never recreates it and future `add`s skip it.
+
+### Claude Code config (`~/.claude`)
+Tracked (real config): `CLAUDE.md`, `RTK.md`, `settings.json`, `skills/`, `hooks/`.
+`~/.claude` is a mix of config and heavy runtime state — add only the config, the
+same way you'd curate `~/.config`:
+```bash
+chezmoi add ~/.claude/CLAUDE.md ~/.claude/RTK.md ~/.claude/settings.json \
+            ~/.claude/skills ~/.claude/hooks
+```
+Do **not** add (all ignored in `.chezmoiignore`):
+- `.credentials.json` — auth secret, never commit
+- `settings.local.json` — machine-specific by convention (the `.local` suffix)
+- Caches / runtime state: `plugins/` (100M+, re-downloadable), `security/`,
+  `projects/`, `sessions/`, `session-env/`, `jobs/`, `cache/`, `paste-cache/`,
+  `file-history/`, `shell-snapshots/`, `backups/`, `telemetry/`, `daemon/`,
+  `ide/`, `downloads/`, `plans/`
+
+Note: `~/.claude` (Claude **Code**) ≠ `~/.config/Claude` (Claude **Desktop** cache).
+Track the former's config; never the latter.
+`settings.json` carries machine-specific values (AWS profile, `/home/cbosle` paths)
+— fine for a personal backup, but adjust on a new machine.
 
 ## Commit and push
 
