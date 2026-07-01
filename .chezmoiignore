@@ -1,1 +1,11 @@
 .config/zsh/secrets.zsh
+
+# Wallpaper binaries (EndeavourOS defaults, re-downloadable)
+.config/sway/*.png
+.config/gtklock/*.png
+
+# Runtime state, not config
+.config/go/telemetry
+
+# Runtime log
+.config/foot/theme-switch.log

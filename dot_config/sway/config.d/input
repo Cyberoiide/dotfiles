@@ -1,0 +1,42 @@
+### Input configuration
+#
+# Read `man 5 sway-input` for more information about this section.
+
+# Touchpad configuration
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+}
+
+# at home
+input type:pointer {
+    accel_profile flat
+    pointer_accel -0.3
+}
+
+# Enable numlock by default
+input type:keyboard xkb_numlock enabled
+
+# Cherry keyboard via Belkin dock — force azerty
+input "1130:275:Cherry_GmbH_CHERRY_Wired_Keyboard" {
+    xkb_layout fr
+    xkb_variant azerty
+}
+
+# Set keyboard layout and variant based on current system settings
+exec_always {
+    'swaymsg input type:keyboard xkb_layout "$(localectl status | grep "X11 Layout" | sed -e "s/^.*X11 Layout://")"'
+    'swaymsg input type:keyboard xkb_variant "$(localectl status | grep "X11 Variant" | sed -e "s/^.*X11 Variant://")"'
+}
+
+# # Toggle between keyboard layouts. This example has the "us" and "gb"
+# # keyboard layouts, and uses Alt+Shift to toggle between them.
+# input "type:keyboard" {
+#     xkb_layout "us,gb"
+#     xkb_options "grp:alt_shift_toggle"
+# }
+# # Assign the same binding to "pkill -RTMIN+1 waybar" to send signal to
+# # the Waybar keyboard module (so the module shows the updated layout).
+# # This example uses Alt + left Shift.
+# bindsym Alt+Shift_L exec "pkill -RTMIN+1 waybar"
