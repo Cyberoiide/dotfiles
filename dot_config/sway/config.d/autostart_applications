@@ -8,9 +8,11 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-# Idle configuration
-exec swayidle idlehint 1
-exec_always swayidle -w before-sleep "gtklock -d"
+# Idle configuration: lock after 10 min idle (no auto-suspend).
+# `timeout 600` locks the screen; `before-sleep` still locks on manual suspend/lid.
+exec_always pkill swayidle; swayidle -w \
+    timeout 600 'gtklock -d' \
+    before-sleep 'gtklock -d'
 
 # Desktop notifications
 exec mako
