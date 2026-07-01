@@ -9,3 +9,25 @@
 
 # Runtime log
 .config/foot/theme-switch.log
+
+# ~/.claude — track only config/skills/hooks; ignore caches, sessions, secrets.
+# (chezmoi only manages what's been `add`ed, but these rules make intent explicit
+#  and guard against accidental adds.)
+.claude/.credentials.json
+.claude/settings.local.json
+.claude/plugins
+.claude/projects
+.claude/sessions
+.claude/session-env
+.claude/security
+.claude/jobs
+.claude/cache
+.claude/paste-cache
+.claude/file-history
+.claude/shell-snapshots
+.claude/backups
+.claude/telemetry
+.claude/daemon
+.claude/ide
+.claude/downloads
+.claude/plans
