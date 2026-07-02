@@ -102,7 +102,7 @@ alias ls='eza --group-directories-first'
 alias ll='eza -lah --group-directories-first --git'
 alias lt='eza --tree --level=2'
 alias cat='bat --paging=never'        # optional; use `command cat` for raw
+alias kanshi-restart='systemctl --user restart kanshi.service'  # reapply monitor layout after sway reload
 eval "$(zoxide init zsh)"             # adds the `z` command (smart cd)export PATH="$HOME/.local/bin:$PATH"
-
 # Secrets live in an untracked file (not managed by chezmoi)
 [ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
