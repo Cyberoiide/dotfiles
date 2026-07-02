@@ -1,18 +1,23 @@
 # Auth with polkit-gnome:
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Import environment variables for user systemd service manager
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-# Update dbus environments with display variables
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# Import environment + start the systemd user session target.
+# Chained so env is set BEFORE the target starts; graphical-session.target
+# pulls up kanshi.service (outputs + wallpaper via ~/.azotebg).
+exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway; \
+     systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP; \
+     hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP; \
+     systemctl --user start sway-session.target
 
 # Idle configuration: lock after 10 min idle (no auto-suspend).
 # `timeout 600` locks the screen; `before-sleep` still locks on manual suspend/lid.
 exec_always pkill swayidle; swayidle -w \
     timeout 600 'gtklock -d' \
     before-sleep 'gtklock -d'
+
+# Night shift (blue light filter, auto sunrise/sunset for Paris)
+exec_always pkill wlsunset; wlsunset -l 48.8566 -L 2.3522
 
 # Desktop notifications
 exec mako
