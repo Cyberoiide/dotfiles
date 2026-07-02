@@ -103,6 +103,15 @@ alias ll='eza -lah --group-directories-first --git'
 alias lt='eza --tree --level=2'
 alias cat='bat --paging=never'        # optional; use `command cat` for raw
 alias kanshi-restart='systemctl --user restart kanshi.service'  # reapply monitor layout after sway reload
+nightshift() {                        # toggle wlsunset blue-light filter on/off
+  if pgrep -x wlsunset >/dev/null; then
+    pkill wlsunset
+    echo "nightshift off"
+  else
+    nohup wlsunset -l 48.8566 -L 2.3522 >/tmp/wlsunset.log 2>&1 & disown
+    echo "nightshift on"
+  fi
+}
 eval "$(zoxide init zsh)"             # adds the `z` command (smart cd)export PATH="$HOME/.local/bin:$PATH"
 # Secrets live in an untracked file (not managed by chezmoi)
 [ -f ~/.config/zsh/secrets.zsh ] && source ~/.config/zsh/secrets.zsh
