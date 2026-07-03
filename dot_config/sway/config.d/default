@@ -224,6 +224,8 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
 #
     # Snip a selection and pipe to swappy
     bindsym print exec grim -g "$(slurp)" - | swappy -f -
+    # Snip a selection and copy straight to clipboard, no UI
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
     # Screenshot a window and pipe to swappy
     bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
     # Screenshot the current display and pipe to swappy
