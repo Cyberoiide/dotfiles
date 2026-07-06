@@ -2,6 +2,9 @@
 Description=kanshi dynamic output configuration
 After=graphical-session.target
 PartOf=graphical-session.target
+# Don't let a transient "failed to connect to display" race at login trip
+# the default start limit (5 fails / 10s) and kill the service permanently.
+StartLimitIntervalSec=0
 
 [Service]
 ExecStart=/usr/bin/kanshi
