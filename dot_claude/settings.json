@@ -8,17 +8,23 @@
   },
   "permissions": {
     "allow": [
+      "Task",
       "Bash",
+      "Glob",
+      "Grep",
+      "LS",
       "Read",
       "Edit",
+      "MultiEdit",
       "Write",
       "WebFetch",
       "WebSearch",
       "mcp__plugin_playwright_playwright__*",
-      "mcp__plugin_context7_context7__*"
+      "mcp__plugin_context7_context7__*",
+      "mcp__affine__*"
     ]
   },
-  "model": "eu.anthropic.claude-opus-4-8[1m]",
+  "model": "global.anthropic.claude-fable-5",
   "hooks": {
     "PreToolUse": [
       {
@@ -79,7 +85,8 @@
     "gitlab@claude-plugins-official": true,
     "claude-mem@thedotmack": true,
     "ponytail@ponytail": true,
-    "caveman@caveman": true
+    "caveman@caveman": true,
+    "workday-formations@claude-do-my-formations": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -122,6 +129,12 @@
       "source": {
         "source": "github",
         "repo": "JuliusBrussee/caveman"
+      }
+    },
+    "claude-do-my-formations": {
+      "source": {
+        "source": "github",
+        "repo": "Cyberoiide/claude-do-my-formations"
       }
     }
   },
