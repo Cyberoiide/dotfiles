@@ -1,0 +1,8 @@
+[includeIf "gitdir:~/heka/"]
+	path = /home/cbosle/.gitconfig-heka
+
+[includeIf "gitdir:~/stratumn/"]
+	path = /home/cbosle/.gitconfig-stratumn
+[user]
+	email = clement.bosle.dev@gmail.com
+	name = Cyberoiide
