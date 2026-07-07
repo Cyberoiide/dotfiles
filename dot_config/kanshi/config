@@ -9,11 +9,10 @@ profile home {
     exec ~/.azotebg
 }
 
-# WORK: single external 4K on DP-1, laptop below. Refine with real
-# make/model/serial once at the office (swaymsg -t get_outputs).
+# WORK: LG BL650 on DP-1 top, laptop below.
 profile work {
-    output DP-1 mode 3840x2160 position 0,0 enable
-    output eDP-1 mode 1920x1200 position 0,2160 enable
+    output DP-1 mode 1920x1080 position 0,0 enable
+    output eDP-1 mode 1920x1200 position 0,1080 enable
     exec ~/.azotebg
 }
 
