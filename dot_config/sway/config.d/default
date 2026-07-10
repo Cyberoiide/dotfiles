@@ -44,6 +44,9 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
     # Activities
     bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
 
+    # Dictation (speech-to-text): toggle recording, types at cursor
+    bindsym $mod+m exec blurt toggle
+
     # Move windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Change "normal" to "inverse" to switch left and right

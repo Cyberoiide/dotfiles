@@ -1,0 +1,35 @@
+# blurt configuration. Environment variables (BLURT_*) override these.
+
+[model]
+name = "auto"             # "auto" picks by device (below); or force one, e.g. "large-v3-turbo", "small.en"
+gpu_name = "large-v3-turbo"  # model used when a CUDA GPU is available (accurate)
+cpu_name = "small"           # multilingual (FR+EN); was small.en (English-only)
+device = "auto"           # "auto" | "cuda" | "cpu"
+compute = "auto"          # "auto" | "int8" | "int8_float16" | "float16" | "float32"
+language = "auto"         # "auto" detects per utterance; "keyboard" follows your active keyboard layout / IM (fcitx5, ibus, KDE, xkb-switch); or pin "en","ko",… (multilingual model only)
+beam_size = 1             # greedy: ~3-4x faster on CPU, minimal accuracy loss
+
+[input]
+mode = "toggle"           # "toggle" (press start / press stop) or "hold" (push-to-talk)
+# Keybinds are best edited with `blurt settings`. These scalars seed the
+# defaults; the [keybinds] section (written by the settings window) overrides
+# them and supports multiple binds per action.
+# key = "ctrl+grave"      # a key that STARTS recording (also `blurt toggle` via your DE)
+stop_key = "space"        # while recording: stop + transcribe
+submit_key = "enter"      # while recording: stop + transcribe, then press Enter
+cancel_key = "alt+backspace" # while recording: cancel + discard (nothing typed)
+submit_delay = 0.6        # seconds to wait after typing before pressing Enter
+# typer = "xdotool"       # force a typing backend: xdotool | wtype | ydotool
+
+[ui]
+enabled = true            # show the waveform overlay
+vad = true                # only react to voice (Silero VAD), not music
+progress = true           # keep the window up during transcription with a progress bar
+notifications = false     # desktop popups; off because the overlay shows state
+
+[output]
+clipboard = true          # also copy each transcription to the clipboard
+
+[report]
+popup = true              # on error, show a pop-up with a one-click GitHub report
+# repo = "https://github.com/kaukauk/blurt"   # where reports are filed
