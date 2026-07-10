@@ -8,6 +8,8 @@ device = "auto"           # "auto" | "cuda" | "cpu"
 compute = "auto"          # "auto" | "int8" | "int8_float16" | "float16" | "float32"
 language = "auto"         # "auto" detects per utterance; "keyboard" follows your active keyboard layout / IM (fcitx5, ibus, KDE, xkb-switch); or pin "en","ko",… (multilingual model only)
 beam_size = 1             # greedy: ~3-4x faster on CPU, minimal accuracy loss
+# Vocabulary bias (Whisper initial_prompt): tech jargon spelled correctly
+prompt = "Kubernetes, pods, Helm, Helmfile, Terraform, ArgoCD, GitLab, GitOps, kubectl, sway, Wayland, Arch Linux, Docker, Prometheus, Grafana, AWS, GCP, bastion, DevOps, SRE, backend, frontend, API, YAML, Python, Rust."
 
 [input]
 mode = "toggle"           # "toggle" (press start / press stop) or "hold" (push-to-talk)
