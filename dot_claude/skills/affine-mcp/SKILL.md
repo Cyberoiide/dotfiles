@@ -33,6 +33,8 @@ If a search returns more than one live match, surface the options to the user ra
 **Create a new doc**
 `create_doc_from_markdown` when you already have Markdown content — much less round-tripping than `create_doc` + `append_block` calls. Use `move_doc` afterward if it needs a specific parent in the sidebar tree, and `list_children` to confirm placement.
 
+Always set an icon after creating: `update_doc_icon` with an emoji that actually represents the doc's content/topic (not a generic 📄/📝). Pick from the content itself — a debug/incident note gets 🐛, a k8s note gets ☸️, an AWS cost note gets 💰, etc. Skip only if the user explicitly says not to.
+
 **Edit an existing doc**
 `read_doc` first to see current structure, then:
 - `append_markdown` / `append_block` to add content without touching what's there
@@ -75,7 +77,7 @@ Database block ID: `b3GBxWd-N1`. Columns (from `read_database_columns`):
 
 Steps:
 
-1. **Create the note doc first.** `create_doc_from_markdown` (or `create_doc` + `append_block`/`append_markdown`) in the Sia workspace with the actual note content and a real title (the row's own Title cell is conventionally left blank/single-space — the title lives on the linked doc, matching every existing row).
+1. **Create the note doc first.** `create_doc_from_markdown` (or `create_doc` + `append_block`/`append_markdown`) in the Sia workspace with the actual note content and a real title (the row's own Title cell is conventionally left blank/single-space — the title lives on the linked doc, matching every existing row). Set a content-relevant icon with `update_doc_icon` (see icon rule above).
 2. **Add the row** with `add_database_row`:
    - `docId`: `ZJjbIuuHXjXSb78JbJgBL`
    - `databaseBlockId`: `b3GBxWd-N1`
