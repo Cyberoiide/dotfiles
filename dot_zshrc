@@ -131,6 +131,10 @@ compdef kubecolor=kubectl      # keep kubectl completion under kubecolor
 compdef k=kubectl              # ...and under k
 alias ktx="kubectx"            # ktx <context> to switch cluster/context
 alias kns="kubens"             # kns <namespace> to switch namespace
+bastion-sia() {                # tunnel to sia-common-tooling bastion (frees :8888, then ktx sia-common-tooling)
+  pkill -f 'ssh.*-L8888:localhost:8888' 2>/dev/null
+  gcloud beta compute ssh common-tooling-bastion --project=sia-devops --zone=europe-west1-b -- -4 -L8888:localhost:8888 -N -f
+}
 
 # modern cli replacements
 alias ls='eza --group-directories-first'
