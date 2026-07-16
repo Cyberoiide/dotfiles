@@ -1,0 +1,64 @@
+[sso-session heka]
+sso_start_url = https://heka.awsapps.com/start
+sso_region = eu-west-3
+sso_registration_scopes = sso:account:access
+
+[profile code-assist-admin]
+sso_session = heka
+sso_account_id = 200915316631
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile code-assist-advanced]
+sso_session = heka
+sso_account_id = 200915316631
+sso_role_name = AdvancedReasoningModelConsumer
+region = eu-west-1
+
+[profile agentcore-dev]
+sso_session = heka
+sso_account_id = 287084412298
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile agentcore-prod]
+sso_session = heka
+sso_account_id = 293645432938
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile heka-obelix-dev]
+sso_session = heka
+sso_account_id = 865731273822
+sso_role_name = ObelixDevAdministratorAccess
+region = eu-west-1
+
+[profile heka-obelix-prod]
+sso_session = heka
+sso_account_id = 562492594052
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile heka-obelix-prod-us]
+sso_session = heka
+sso_account_id = 668318663845
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile prefix-dev]
+sso_session = heka
+sso_account_id = 236032564014
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+
+[sso-session stratumn]
+sso_start_url = https://stratumn.awsapps.com/start
+sso_region = eu-west-1
+sso_registration_scopes = sso:account:access
+
+[profile stratumn-staging]
+sso_session = stratumn
+sso_account_id = 983411714382
+sso_role_name = AdministratorAccess
+region = eu-west-1
