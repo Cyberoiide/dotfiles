@@ -1,0 +1,262 @@
+apiVersion: v1
+clusters:
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURLekNDQWhPZ0F3SUJBZ0lSQUtHSzVXNXlvNTdNSG9DZ1drYUI2VU13RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa05ESTFZVFZqTTJNdE5UQm1NQzAwTVRVMExXRTJZbVl0TUdNek5qSTBZMlZrWmpJNQpNQjRYRFRJeE1EZ3hOekEyTkRVeE1sb1hEVEkyTURneE5qQTNORFV4TWxvd0x6RXRNQ3NHQTFVRUF4TWtOREkxCllUVmpNMk10TlRCbU1DMDBNVFUwTFdFMlltWXRNR016TmpJMFkyVmtaakk1TUlJQklqQU5CZ2txaGtpRzl3MEIKQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBeU1QNm92N25QRDVHbEw5WUltcmRZUTZNZUZzamtuNXludUVGUXVBWQpoZWNrSXRyMnZQRGNEYllxZGJHN21lQXBCRHRlaHFCQWYycDNTamgzWE1GL0RTWFlwSnNOZlVXdklWN2dnVUhaCkl0VVI1YnJDY0k1SlA4UW8yenBmUEpBMklxMmVza0pzMWIyMkJFdXkyeHQxVUhkNnBtUWQ4TkFSSFJ3cmdsbUMKc0NNK3dac0ZnSlppUHhwbXFPZ3o5di96dFQ5YlpJNk1haUg0cGt5dkNFMU45bU9vb3JEaFFnTmpCbkhrVG40Ugo0VlNTWHhYY1pYRkRCU0dYYml2YW83YzZ1WjV1NktVMzVZVzNkNU1UamN4NXVSWjdpaHROVjVqT3BrZ0pYQzZaCkowUzlwbVFiSWJzWDZqcTNMNS93WFdFcUlmYVU3R01JZmtWWDYxNGZpRnA0dlFJREFRQUJvMEl3UURBT0JnTlYKSFE4QkFmOEVCQU1DQWdRd0R3WURWUjBUQVFIL0JBVXdBd0VCL3pBZEJnTlZIUTRFRmdRVURBa0tiVEhxa01MZQpXWjEyUkpGTGc1NTF6TVV3RFFZSktvWklodmNOQVFFTEJRQURnZ0VCQUpwTW9vQ3ZJaE5XQW5TQXpydlN0dm9KCmx3KzMxR1pCTEFaWkJoV2Y0U1IvRFE4bUNYSWtJZzRYRk9HdXdSWllTNEF0N1BaUGgrUmM5TEFmTCtrVEh5VGoKYVp1TkwvZjIzQVlkeVFkWnRBOWlYZ2ZiRGxaNjVBckhHejdSMVptMGhGVkUvdFNJcTJLQVhmMTRtdnMrdTNvbwpacmJycDVPaGdFR0orMEhxWWREM2ZJTHpKTm9zK0k2c2k4UGNIcVpkdXYzeTdZWElkT2dnckhVOElLa3RTd08rCnFxNkMwOGU3amE2andiRVBYUm9yTCtybGg1SkxFdmFqZDRDY3pSb2NXOFBOTk9qYnNLczBSckJ6RmV2RUxPYzcKL0dhYktyb2w2dmcvbkJJSTVmRWNGdlMxZTM2QTNiTWd4R2xPZlJHYU9hVld6ZUh4MldVVkpWaGx3OVZIak1nPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+        server: https://35.195.136.45
+    name: asterix-prod
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJTERXL2swM2Vjd3N3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TlRBek1qY3hNekl3TlRWYUZ3MHpOVEF6TWpVeE16STFOVFZhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURNcWxONXV5dzF2WkowMVc4WWRQTjhNNndWOUk1TW5zamtQUHN2bGZIMHpvYzVmYVc5RGVwUGhNUzMKSDFTNDE1MSs2VnhJcWZtM1dtV1Jqa3g4VzBHeUowbXZ2alhaUWdsSnRUQWxBZzNreGY4UVJkQ3A2cnpRY2FRcwpXQ3VFcjlaTnBGS0ozQUg4dlZNZDEzbjlBZ3BmbWxRTkI0N3FBLzgxK2Y3am01RHcybU1WWkgwVjEycmNNSkoxCmhnTWdQZ0M4T2MyNElyaHBJNHIwRmp3MTBQVnhacFFXSFdPNFVnWTdwekROZ0E3RS9CNHNna3VMTkQ0WUgwUVQKWm94NlZrbGdEcUJYZ0d4L09BVVZmUVRBQlpVWmRKb2cwNHg4a05na0lKaFdvRDRBaDAvY2J1RVR6My9pSk90agpSU2YvY2ppbzFodmVZQnRsZlo3Vi85aDR2OVkxQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUTDVZbXc5bnZoclVucVB2NndsbVB4WkpqWjR6QVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQ3IycWFZUVc0VQphOHlpWHRtUnhRK2c4bXl1YW9hdk5aOENvR0JwRk9kTUV3L3FJcHExMzUzVjNkQ0JpZVJhRytvRFI1VUsvWkhNCnlTVkJ2ZStabnN6ZnV6VXFKSGxvN2xFMnpObmFsVkRITWZta3JQa1RCRklSdW5xb1F6KzdUWThPWnpvMzNSVFUKbWZIN05ldlBYdkRMQnZvVkNsTjRYUXZVSFFFSkRmZ1pRWFg5T3N2NWtGUmt1SEg1REtibW1IeFVCNWpiS0o2bApwVGpPMXpFdXNHbmkwd3pmdWhuclM5MXorQ2d0THRmN2RXdXN6cXFVSklvbU5Nd0RRcytkT2hOV3NRRks2SFVZCm1qQUsyc0R4VlpTS3ZEd1E1WkxJN2dUZDlmK0lpaFJObm42VlV4RGVnQ1lwcU16ZVRKbXMrSjRNZ01CZmlBSEEKcWtTT3Q0K3VMbHFsCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        proxy-url: http://localhost:1234
+        server: https://D47732B3211674D89FDF1506C6A1C502.gr7.eu-west-1.eks.amazonaws.com
+    name: cetautomatix
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRT00xSnRQSUVhNHcyQzJLZy9tMStjakFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlReE1USXdPVGM1WXkxbU1EYzNMVFEwWm1VdE9EUmlZeTFtTVRJNE5EUmhaV1ZrTlRRdwpJQmNOTWpFd09ERXlNRGd6TmpNM1doZ1BNakExTVRBNE1EVXdPVE0yTXpkYU1DOHhMVEFyQmdOVkJBTVRKREV4Ck1qQTVOemxqTFdZd056Y3RORFJtWlMwNE5HSmpMV1l4TWpnME5HRmxaV1ExTkRDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQUpmMVVaRXlLVnE0SzJhLy9PcTdqa0duSzF4a3B4V3BrTDd3Y1FjZApBdi85dG5sU2JTa1kybHU3eHBxTkd0blFxeHlSSDdaR0FqWmQyRmZZa2lLbDltOFNGS0hheTBFaWxaSFpMcXYzCjFSQ0NWMDJIUDVRaXZlc3YzSUtyS1YvS01JbEkrdmdzNERFOGxyUGhhV1lkQjJvUi9jVVRMM21pdzh3T2E0S2gKd2t6SlJjRTl2dm5jeEEzOG9LdWp2cFFlRkhBWGl1OXpTOG1wWVBpRkJvQXV3WTVNMEUrYXJTdko3cDVWOXVoegpLVzdFSmRnQjRqVkxmUjEyQS9HaDdkZzZ1VDhaaE9OZWhsYWZRSC9SUVQ4TnhrazIvcXpZZ21BNWZrWXFRZ2FiClFkSzRhdVhBZmN1QWZBMW9QZGNmV2JzVXRIUUJhSVNSeWtTNStZWk9ZRkRYYUZsNHhGc2tmZk9WUTVSM3JlS1YKN3NyaTluOTkyaE5TR1Mxd25pcWhXamJOczhGcXdKV3NmR2h6ZE1KdG5uSEQxSU1BTzFZamRlUHVvblA0TnIveQpBR3V1K3dueGlvbTZycWx6Q1RNcUxEdWVLZ3F0bTlETU1kcDNWSkFXR0J0YlBqZ0J4alN3MDFXYVlCMHZVdEE2CkxVL2xBZ0JZaitGc21uaklNeVJyV283eVhRSURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVV0SFo0UkpobTlZTVhkczA5Ly9uOXBJcEFUVjR3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFIYkoxenRXQ01zRHNhNU5hSDRlVXZMQm1HVmo0MjdLcEprMFllZFJtQTNMCkx0amxwbEtHem5sa3hWeXgwOGR4aGF0NkZOa2Zobmp3aWlXZW8zdEZqYUppN3FwdWFoNGFuS3JrYU9MdmZMOHgKejk5a25EV09MU2docllacjNuQld5R1Z2c0h1Rzh5azAvYVY2WWdXWlN1VzJ1MFhWWm9adXJIcGFKUFVuN1Q1Ywpma2g5azJuSnhQZXBBblZnUFpVbTN4SjN6RCt5VzNONyt2Q2Zpd3IvRzU4UWNjWSsvTzB5bnhpYU5QQnF1anFoCjAvV1JEazQyQWdPWFkvb2xBRVlxMmdzWmtrc0ZVNnlZMDNBMG1PbEFtTXFLbFYrSG1hc3U3cVcrTktWVytXcloKd1pvSjJsM0JwMjgyVlVKR1NKMTZodGpIMVRoUkxHUUZQNDNRWE9wNEMxVHVOMmhrMmJGYW4xdEVQWGs3VEJ1NApmTmFWT0NicVV0Y0FldXp0OE5Jd1dCRFEyWXo1RHJUZkl3SzdoNDZ2VFo1ZXpwT2h6dXFwRmhXM0Y4VktBUUkxCnlocnZpa0ZvTVBrdE9VM3poUnJrc0lBajRGSkJpcEl5L1haaDFzWXlQSjNMOVBiZUNXd2gxM25mU1RucDB0QncKWFRMWm9Fb25nTGRIVGJPWmNHaENaQT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        server: https://35.240.68.210
+    name: gke_heka-asterix-dev_europe-west1_heka-cluster-20210812093636
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRYjB4d2pmaGpVSFRNTVZvc0pRMGpsakFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSbFpqQmlOREUyWXkwMU5XVmpMVFF4TURjdFltVXpZUzB3TUdZeVlqYzFabVkzWVdRdwpJQmNOTWpJd09USTJNRGcxTVRReldoZ1BNakExTWpBNU1UZ3dPVFV4TkROYU1DOHhMVEFyQmdOVkJBTVRKR1ZtCk1HSTBNVFpqTFRVMVpXTXROREV3TnkxaVpUTmhMVEF3WmpKaU56Vm1aamRoWkRDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQUs0ZlFXYkdCVzRSbDhhY2M3L0dtbWJnT25Yc1FyQXlSdjFTNnRlRApPdnlIYUVST3RaVFhJVEdWZW43M25CUUF1aW1VK25QeElRSVdCcDRWeWU5aHNjbU5qUk1oaDlnL0J1cCs4ZG8wCnRZamJlQmR5UDlHNllNYm9tRXJtUnBTL2JHOCsxR2lBWkk0NkRlWExxM2FKMDZwZFltSGpXSklONU1FRHA1TDIKRm5QcUV0YmNMc2lDeFYwWDc2Y0x1cmN3aW9TeVg3UjVWS1ZibGJRaXNYRTI2V3ZqTE9RcDBzbzFYejk4NzcyegpVWUozWEZ4dVl0SCthN1NJYWRxUHU4akw5REU5UldFMWxMaTAxcExETmg5QThLSE00K2dnL0pHNG5hWmRLTVF4Ck40RUNzd2hCdzNvN1pjbXExUFBsVDh3WXFOZkluRzh3VHhuTUovWmMxTkkvUUsyNTBlVndSQjBIUlRHdko1UGkKWnpwaXlIUUR4OWo0WXI1eU9uNUlGUU1hWlQvTU5yc0kzMUhlUG9IVUZRdnI2NHpKLzRidlF3cEozMVZ0Q0R4KwpFSXJGbkM5N0I3QytqbmlFSnREalR5aFlYYTZGM1NIMEdDMWZWN3hxc1A5ci84dW9MTGhHQ0x4Z0x6OEgxdkw3CmdMbDZvK3hDUjYvODJ2WjVKYmpSZzB3SE9RSURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVvVE1Rd1BFV1R5dGlUbk5vMU5kcDRoL1Q5QWd3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFFdEo2TXFFZzJyQU5JTVkrTDlXNHRCWjV2S3MrL2NqbjgrdGo2Yk5xMHI5CkRobHliREFYMFFZTHJQck81c1BGUUFMRnUwT1RFQnd2MmVXeHE5bkZsdFpldGV6dkowMFFjV0ZIZnhueEswSVAKMzdTdTgraUM4bDlGREMxK1lnWXpZZEl2dEl3cjRVMHU3eDZXOW1mWm9uRkp6Ukh0RCtzRE0zTXNzNzRSM1BZagpvSW8zV3ViK3YxQnZtUUpzQk5HbDJ0ZGdjZEFBMnhOZThrRWVRc1BiTys5bHZ3RjRzV2lXaDU1U0h2NnNQVkFMCkRYeGxCNFdHQU0vNGNhWE1DZHNwc3NZZTc2SE5yeXZFblNWSVlWazFEUDhrSEl5VWF4RGd3cHp2cDR2L09zLzQKOU5IK1dTSWV4Q01DdUd6ZFlhS1NIZVZycGhmckFnYkJVcXozMG1UVTVQUmdpdElUTFNFNGdDV2J1UG9jakxhUApMQ3BUQ1lod2lrRWhESlFKUlJvSzVSbW41TnMwZGZLR2FPLzFLMy9HNUlpbmNkRVhMVi83TE0zbDMwZHFKWU8yCmhZNkRzUWxLY3FaN2FscFIyNzFQc3VUb1lIOEVHWmJ1alQ3N2h5NWw0S3V6ODgxYnVvQ1FraC8zRHRnckkrMmcKRXN6WUZSTUU4ZWhjYTA2L0lhZGc0Zz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        server: https://172.16.0.2
+    name: gke_sia-devops_europe-west1_common-tooling
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMRENDQXBTZ0F3SUJBZ0lRYjB4d2pmaGpVSFRNTVZvc0pRMGpsakFOQmdrcWhraUc5dzBCQVFzRkFEQXYKTVMwd0t3WURWUVFERXlSbFpqQmlOREUyWXkwMU5XVmpMVFF4TURjdFltVXpZUzB3TUdZeVlqYzFabVkzWVdRdwpJQmNOTWpJd09USTJNRGcxTVRReldoZ1BNakExTWpBNU1UZ3dPVFV4TkROYU1DOHhMVEFyQmdOVkJBTVRKR1ZtCk1HSTBNVFpqTFRVMVpXTXROREV3TnkxaVpUTmhMVEF3WmpKaU56Vm1aamRoWkRDQ0FhSXdEUVlKS29aSWh2Y04KQVFFQkJRQURnZ0dQQURDQ0FZb0NnZ0dCQUs0ZlFXYkdCVzRSbDhhY2M3L0dtbWJnT25Yc1FyQXlSdjFTNnRlRApPdnlIYUVST3RaVFhJVEdWZW43M25CUUF1aW1VK25QeElRSVdCcDRWeWU5aHNjbU5qUk1oaDlnL0J1cCs4ZG8wCnRZamJlQmR5UDlHNllNYm9tRXJtUnBTL2JHOCsxR2lBWkk0NkRlWExxM2FKMDZwZFltSGpXSklONU1FRHA1TDIKRm5QcUV0YmNMc2lDeFYwWDc2Y0x1cmN3aW9TeVg3UjVWS1ZibGJRaXNYRTI2V3ZqTE9RcDBzbzFYejk4NzcyegpVWUozWEZ4dVl0SCthN1NJYWRxUHU4akw5REU5UldFMWxMaTAxcExETmg5QThLSE00K2dnL0pHNG5hWmRLTVF4Ck40RUNzd2hCdzNvN1pjbXExUFBsVDh3WXFOZkluRzh3VHhuTUovWmMxTkkvUUsyNTBlVndSQjBIUlRHdko1UGkKWnpwaXlIUUR4OWo0WXI1eU9uNUlGUU1hWlQvTU5yc0kzMUhlUG9IVUZRdnI2NHpKLzRidlF3cEozMVZ0Q0R4KwpFSXJGbkM5N0I3QytqbmlFSnREalR5aFlYYTZGM1NIMEdDMWZWN3hxc1A5ci84dW9MTGhHQ0x4Z0x6OEgxdkw3CmdMbDZvK3hDUjYvODJ2WjVKYmpSZzB3SE9RSURBUUFCbzBJd1FEQU9CZ05WSFE4QkFmOEVCQU1DQWdRd0R3WUQKVlIwVEFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVVvVE1Rd1BFV1R5dGlUbk5vMU5kcDRoL1Q5QWd3RFFZSgpLb1pJaHZjTkFRRUxCUUFEZ2dHQkFFdEo2TXFFZzJyQU5JTVkrTDlXNHRCWjV2S3MrL2NqbjgrdGo2Yk5xMHI5CkRobHliREFYMFFZTHJQck81c1BGUUFMRnUwT1RFQnd2MmVXeHE5bkZsdFpldGV6dkowMFFjV0ZIZnhueEswSVAKMzdTdTgraUM4bDlGREMxK1lnWXpZZEl2dEl3cjRVMHU3eDZXOW1mWm9uRkp6Ukh0RCtzRE0zTXNzNzRSM1BZagpvSW8zV3ViK3YxQnZtUUpzQk5HbDJ0ZGdjZEFBMnhOZThrRWVRc1BiTys5bHZ3RjRzV2lXaDU1U0h2NnNQVkFMCkRYeGxCNFdHQU0vNGNhWE1DZHNwc3NZZTc2SE5yeXZFblNWSVlWazFEUDhrSEl5VWF4RGd3cHp2cDR2L09zLzQKOU5IK1dTSWV4Q01DdUd6ZFlhS1NIZVZycGhmckFnYkJVcXozMG1UVTVQUmdpdElUTFNFNGdDV2J1UG9jakxhUApMQ3BUQ1lod2lrRWhESlFKUlJvSzVSbW41TnMwZGZLR2FPLzFLMy9HNUlpbmNkRVhMVi83TE0zbDMwZHFKWU8yCmhZNkRzUWxLY3FaN2FscFIyNzFQc3VUb1lIOEVHWmJ1alQ3N2h5NWw0S3V6ODgxYnVvQ1FraC8zRHRnckkrMmcKRXN6WUZSTUU4ZWhjYTA2L0lhZGc0Zz09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        proxy-url: http://localhost:8888
+        server: https://172.16.0.2
+    name: heka-common-tooling
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJUjJVUG9semRDcTB3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TXpFeE1EY3hORE14TlRsYUZ3MHpNekV4TURReE5ETTJOVGxhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUURXdCthemFKaU9FUnhlRW0raVNybUlMUUYwTUVXeTNNUFZ3ajdTK0U0eFhSTlhka1NoV1E0YkxhWTkKWjVPQ3JvUllKaEdrUUhOQjRUdnhrVXE2N2JJejhTa3pjWlRNeGlPREdhMTZqTTNQempycnRKVU5vT0t4WTBkcgpBait5Rkk0YWphZTRLekhNWGRsVnNiVTdWQXlJQlA5NXhWazZldUxTR1htbjBqem55MHBGK3lSNGNHeFF1bmdSCi9NNkh0UFlqUlZBaTl3U1hOVm1QZGZvSUFSaHN2d29Bc050Sytjd2NGRkhjQ1RqZk1HYktaRnZUaUlJL0FRT2sKYWJKWnlaT1daSlpVa1A2aS81aTFPd2lwRkZZNDYrV0ZNR0ZFUjBEQTNVbFU4ZG1pQzRMa3Q4TnZCVTcrOXl1SQpNQ3J1aGhjWGRXR0d0aFZkajdYeU9sZ01rcDdkQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJRYnpzTG8wbkRKQWxpWWNJcGwwak5mUDhYd05qQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQUtvaDErdVN2MApJTDZ4SVBwdkZURk93Z1kzVjBMVGhkMjRXNW1jUVFjbTNuZ2FPYmZvRGNIY0plMzNMWmRXTDlETGFaNXFocGxNCmVXa1BDSjN5NWd4REpGQzRrWklvaitaMmlhbDV1K3RpSnhPQ28vcWlURTFlUUdjUWRBZklhaG8zNFZVSk5jNGcKMU0zVUVxdkdlTXNRVmpLRkltNU5jMysyaHJyLy9WMlpXZm1pZFI2NS9SNVRzUXBrdW9OK3l1dmNxMEtJMjRURApGNHZnR0NUbWZRc0lwbXJQOXc1RDFrRkpwWWpXMHkrcWdkZk40TnpFclFiQjZQc01pTTBRbUJaZVBuUVNBU0tyClVOakkvMDVzRXFpVFNJczMrb2dKVUV5cXloOG02QmFNVFZZcFY1QnJNak10K1pKTGUzVG5oNVkvSWx4aCtkY2UKeFNDRnFjRHNBakF3Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        proxy-url: socks5://localhost:43059
+        server: https://09D8CDF49F16F983341A2553212BA8BE.gr7.eu-west-1.eks.amazonaws.com
+    name: heka-obelix-dev
+  - cluster:
+        certificate-authority: /tmp/tmp.GobZmxBZ48
+        proxy-url: socks5://localhost:7777
+        server: https://E132027D98229103207410010032199A.gr7.eu-west-1.eks.amazonaws.com
+    name: heka-obelix-prod
+  - cluster:
+        certificate-authority: /home/cbosle/.minikube/ca.crt
+        extensions:
+          - extension:
+                last-update: Wed, 04 Mar 2026 11:13:40 CET
+                provider: minikube.sigs.k8s.io
+                version: v1.36.0
+            name: cluster_info
+        server: https://192.168.49.2:8443
+    name: minikube
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJSzNTSExhK3l4SUV3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TlRFeE1EUXhORE00TlROYUZ3MHpOVEV4TURJeE5EUXpOVE5hTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUM5c2s3QmdkcWFsSXgxY3RyaU9uQitJeXdmdC9raU5mcklUeCtza05VR25UV3BnajZtTEFxYzVaMzQKelo1RmlGOEZHV1IyRU01a1hFelRoaEIrSmVsQVZFVHlkNFVrSEt5d3pMK0ljT0JHcTR0R09Pam5ZSE1KS25MbApGTmdZeTQrbHRFMlN3dnMxMjFRWjUxTnZEc2xMZXg5dkNQQkFaQjg0YytSaXN2dnJ6d2lBTVZ2TmxnS3VzcEdBClJPdk0vZm5IZm5sdnM5NUZESTVXNjZQWVE1WHNhaWRBSTJITlZab3dpSDRQTUM2TWVDNUszSkxjU21LMUpaZGYKOVJ0RS9rMEZZTDBhNkhjS2xDUVdyL1pRWnd4cHZIMHFiRkJLWTkzTmF2dDdpc0FhYlIvTTZxeDRXa3l1czZMOQppNm1LRVpGVTV5TFFrc0VnY0F2cEdESEROdFA3QWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJRRFJTMjg1WTk3Nzk0WFJHSWZ4cm9mWEdlMG1qQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQWhKVnN5aDlkQgpEdjRTQmhGRlg5aFV4d09RUlVwMC9YV3BaOVNSUlJUam5sR2hYQmk0ZmU4OUhaS1pudUZyamMxVGI1aEtoSE1FCjdjR0tSYWpvL3J2cFhYUmNOREhyOElEMFlka04xQUJUMm9vaUNYVEZ3QVk1bHRXWWVWaytsNVRXd0lueDZTbTcKaXJKd0RWMDVBWTFySlRUSy9CSVBBS0NjbVNvTlJJNXNpTktSaHBmNFNTdzVLVFFWTzZMQmhyYmhFZE9wSGlJKwpCbWcvcGx6NWMrMGNCUm1udlZtMWFvNlR6Q0M4ZWVqMkdxQnM1Y2w1R3BvcHo5RDF1cFo2WlRYS2Rna3VwdHpUCkd5UW15NFRXLy9ITGs0M1hxMjdLa1hxRFg4SGpuMVZqeklKOExJdWJEckNMb1BDTG5qVEdNcStYRlpwNEo5ZG8KZjFteTQ5bldQRlc0Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        proxy-url: socks5://localhost:34205
+        server: https://6F8ED455FC849517DCC31D533DA609FE.gr7.eu-west-1.eks.amazonaws.com
+    name: prefix-dev
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJQm8yMWEzWmVLT1V3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBeU1EVXhNRFV4TVRaYUZ3MHpOakF5TURNeE1EVTJNVFphTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUNpVGJBVlB0OHpMdzZ3NVJrUUdRTVdoSEwva0JLR2FnRWpMOUpyaDM5WU11OWZSdnFFbW0xQUpRSHUKelhMbjBCbjl2RDlObXFUdGJISkRqVGxqb1dkWDVSQzhFcXdMZWQ2UlQ2bno2V29ydVdtSjZERnFubURYc2ZSYwppZUlYa09sbmd3V1ZvWlM1V2pOK1Z3K2J2aHdVZFlnNlhsYUJqanphZzh3Ry9vYjV1WXRrdGFNUTVrV29ZTHA2CmFacmlSSmJPWXprV2hIbUFnRDd2WW9HWWdxRWZtTzA4Z1liRytjTDRldTJGczV4d0tnWlYwZU5pZlp5TzhkNFAKR1RpVFcycm1Oek9uT3lsUlhQajBITzlsK01YbmpsRWdHTDB5bktJWEZOU1VlemwzdWxJaDZYQTlEVzJmaWMyYgpqbWNTWGVIWkxRU3ZxdHJRY0dHN0g2aWdVaVBIQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJUMWQzck1LRkFELzNMWVljUzVuTG9MMk1yTTd6QVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQTlET3htRXEyMwpMYzhmYXBzaFdOZjRJN1duK3JKZTJtWk43b1l6YTZFZFNzVWJOWjNLT0YxU0NpR3ExY0U5Y3lpTzg5VEozVUhHCmNZa1ErakxhaldTR2FHd0duNTAxaHJ2S3YvMUhGcURsdVY1Zk4wMG9Xb2g4ZjVqYzU2Unp4N01WaURsQWlhUEUKaGxmSEFuSGRSRlBya3FWUDh1ZDlQWllZV3lRenJwNUNmYlpnTXFYbitNZ3cvSXdBZ1BleEQ4bkRqVjd4ZUhCdgo2VmoxYzhFcjRFb3BCR3NoOS9RVGN2RndaLzNhU1hoR2E1YWFOcXRnTW1LT3pldFRzbGJyWlpxdTd5SXlqUGZJCjRkalk3ZnlJZ2c0Yjdpam9HRDRCaWtUcnlRTkR6YlBoS2o3R2prTU8wUHJzT3o3cE16SVFJa0ZBY0EycytNd0IKMVNyeWk4cHhyU3F1Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        proxy-url: http://localhost:1234
+        server: https://AA9DA2437D92C54D3F623CE97F172B31.gr7.eu-west-1.eks.amazonaws.com
+    name: stratumn-ctx2
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1UQXdOekV4TkRBeU9Gb1hEVE16TVRBd05ERXhOREF5T0Zvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTFNrCnZVRW0rNWZuVlFzeTJMZWJ2N2ZuS2tGRVRBVjkyMk5hbzJIWGxlc1RER01GVkxuYmxxLytxTEJMZGpxbmZMdFAKQ1pRR0RqQkY1Y1Z4KzRZM2pQbFdraWE3UE94RHlMcDJkak84cENQQWplR0N3S1FtdFAxcXpQdHRMUWJYa054SwpjWDVmUW51QXE3TTRxYjMwMVk2Y2xQa2V4NFpGNVl3WVR1Y0VpSGdEZktIeTJSb2g3TGFvZUVCaU12VkhJMW1DCmRpSkI1K05SSmpVUXBJNlNiREVBd2MxbmlGSXYyUG51Z3ZweGhNcmsvUlpGV2trb2dQN3IvZTQyejc5Tm15N3cKbkR6NGZYOXJNYU5EMS9ueCtQNk42dkZDQW5rWDBkb28zNER6eVZUUnhPOHNPckdpZE9kRWJTdFh5a1Z0QTRFYgo1N095UkI3YXUrTW4waHVLNDVjQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZQTFFjbVB4NklxaHJpcThGVWdNSXBtOVVKYmpNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBQkpSaXZYOHpQK3RFUS9PYnYrRAo2OVM1OEE0SmpsTGJFSEZLRDBpZFRlakNkRXZjQ1VDNkZKZGpBL2NMUjhoSi9tM0NHTFVqR0Q5UUZPU21Tb3VhCnMwUEdMUGtNa3ZnUnNvdjN5THlEZ2lwemFDbGpTZmVKL1VmSjQybGdzcGhYYk1QMm5IWXBMLzg3Z0l5OWJxMmkKNEhjK25KbVpoaWorUEYxKy9sRXZQTDkwUWxhZldmcnpZcXltTGpOVjU0aTFqa3Y3ZGNYbU04dGpXT0hubE1NVwpzT2p4Q2o0Ui9XWmRWM09lSXl6bGlhY3JKV2xOK3lXMDdhU0I0TWxUUWQ1R1QwVTErbGk0aDZaV3RRU0MwQXhECmp5cHdFRlMwNm8ya2pYQjVUaEYxQVFMTEhReWhlbzBwRnBWazdvZXhvNUR0T2pkTEZ5KzdzT3RiOEdlMkVCckQKb0lBPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+        server: https://248C3177F6A9B7C325591EEDB6B6E92F.gr7.eu-west-1.eks.amazonaws.com
+    name: stratumn-demo-eks
+  - cluster:
+        certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURCVENDQWUyZ0F3SUJBZ0lJZGpQSjVrSWRSdlV3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWVGdzB5TmpBek1EUXhOekEzTXpCYUZ3MHpOakF6TURFeE56RXlNekJhTUJVeApFekFSQmdOVkJBTVRDbXQxWW1WeWJtVjBaWE13Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUMrLzFybXFvR1RRU0llakl6YkZxbWZXVXdjN2U3VEZwV2VJZFo5bTlPWHNPdU1oa0graXdnZjBGckgKZDkyTGNPU3VGL2RyNzVzVmV3WlRGaTVQdW94WC9GZUlEanBoSi8ydnhBdUZzVU1YQldkM0NMblo0RC9DVFF2QQpPcnF6TU5yVGpVYm9MdUQzeExqQU00M1o3bE5QMGRncHhPNGd0c1VZc2hZMVdYNFNaVGhzRHpweWh3dmtOS1Z0Ck1KbTVpMEJCRFBCQlV2aUpwNWtHKzhWVUM3VTFUc2szbm9hcnFzUGZjUytsdWZ6SEFSc2pCNm1oME4zLzhNYm4KM3NKSXQ1S1E1L1hVNFB6SHpUemtWNmdkU3ZqRnFwdlBTdW4wM0NlYzRhajlhRHBkTGdXdlFjcDl3QUJqcWlJQgpNZExpMkhvQ25KczhGcC94QkNudmo0elFQVXlkQWdNQkFBR2pXVEJYTUE0R0ExVWREd0VCL3dRRUF3SUNwREFQCkJnTlZIUk1CQWY4RUJUQURBUUgvTUIwR0ExVWREZ1FXQkJRcVBhenN3bW00Q3J3STFBVFZZZFBsK1FyK1pUQVYKQmdOVkhSRUVEakFNZ2dwcmRXSmxjbTVsZEdWek1BMEdDU3FHU0liM0RRRUJDd1VBQTRJQkFRQXk4NjhJTFVTcwpKSlYzUjc0MHNObTZHTzVZelNVNUxTaWVTbDBOQ1cwWmhyYXR4bmYrYVVCZkFwZXdqUEpUR0QyVERiTmMzZzhSCjlBSHlpTmZDKzNTMXhmRHcvL05NNFFaVFVLN0RudEhuV0J3c0FNVkVqTktoZW1obDgzeFM5NDlTcEVmU2c5dGMKcmJjUFcvQ1lIc0VEMVBDK2NVckZ5TEhBQ0RXZjZmcFVwUVVyb2dDWEUwRTM1SlJ5cUFFSnI0WFFtRVhjbklBUQpFM3RPdlA0bFZwZXlXZjlpTlJmZkFOdGxLRVJyYnBkUXd0aEpRYmpobUVMdGpyVHRZZkxpNXVKQkx5RGhZRElsCk1aY1gwdHZzSFUyWTFzd09FWElHVXlENXU5anRrMjMzbGtiQmwwcmVDeVplYWRYcitPcVFDVTllR3pESDBvSUgKWEtWa1d3UGtkdkEwCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+        server: https://5DD467CCC08CFEE733EB98189E225A71.gr7.eu-west-1.eks.amazonaws.com
+    name: stratumn-staging
+contexts:
+  - context:
+        cluster: gke_heka-asterix-dev_europe-west1_heka-cluster-20210812093636
+        namespace: heka-risk-control
+        user: gke_heka-asterix-dev_europe-west1_heka-cluster-20210812093636
+    name: asterix-dev
+  - context:
+        cluster: asterix-prod
+        namespace: heka-risk-control
+        user: gke_heka-asterix-prod_europe-west1_heka-cluster-20210817074511
+    name: asterix-prod
+  - context:
+        cluster: cetautomatix
+        namespace: thanos
+        user: cetautomatix
+    name: cetautomatix
+  - context:
+        cluster: stratumn-ctx2
+        namespace: thanos
+        user: arn:aws:eks:eu-west-1:491085389141:cluster/ctx-1770288676
+    name: ctx2
+  - context:
+        cluster: gke_sia-devops_europe-west1_common-tooling
+        user: gke_sia-devops_europe-west1_common-tooling
+    name: gke_sia-devops_europe-west1_common-tooling
+  - context:
+        cluster: heka-obelix-dev
+        namespace: heka-siagpt-website
+        user: heka-obelix-dev
+    name: heka-obelix-dev
+  - context:
+        cluster: heka-obelix-prod
+        namespace: litellm
+        user: heka-obelix-prod
+    name: heka-obelix-prod
+  - context:
+        cluster: minikube
+        extensions:
+          - extension:
+                last-update: Wed, 04 Mar 2026 11:13:40 CET
+                provider: minikube.sigs.k8s.io
+                version: v1.36.0
+            name: context_info
+        namespace: backstage
+        user: minikube
+    name: minikube
+  - context:
+        cluster: prefix-dev
+        namespace: lab-coder
+        user: prefix-dev
+    name: prefix-dev
+  - context:
+        cluster: prefix-test
+        namespace: default
+        user: prefix-test
+    name: prefix-test
+  - context:
+        cluster: heka-common-tooling
+        namespace: vault
+        user: gke_sia-devops_europe-west1_common-tooling
+    name: sia-common-tooling
+  - context:
+        cluster: stratumn-demo-eks
+        namespace: otel
+        user: arn:aws:eks:eu-west-1:485211018811:cluster/thor
+    name: stratumn-demo
+  - context:
+        cluster: stratumn-staging
+        namespace: stratumn
+        user: stratumn-staging
+    name: stratumn-staging
+current-context: stratumn-staging
+kind: Config
+users:
+  - name: arn:aws:eks:eu-west-1:491085389141:cluster/ctx-1770288676
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args:
+              - --region
+              - eu-west-1
+              - eks
+              - get-token
+              - --cluster-name
+              - ctx-1770288676
+              - --output
+              - json
+            command: aws
+            env:
+              - name: AWS_PROFILE
+                value: cetautomatix-prod
+            interactiveMode: IfAvailable
+            provideClusterInfo: false
+  - name: cetautomatix
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args:
+              - --region
+              - eu-west-1
+              - eks
+              - get-token
+              - --cluster-name
+              - cetautomatix-1743081679
+              - --output
+              - json
+            command: aws
+            env:
+              - name: AWS_PROFILE
+                value: stratumn-monitoring
+            interactiveMode: IfAvailable
+            provideClusterInfo: false
+  - name: gke_heka-asterix-dev_europe-west1_heka-cluster-20210812093636
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args: null
+            command: gke-gcloud-auth-plugin
+            env: null
+            installHint: Install gke-gcloud-auth-plugin for use with kubectl by following https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin
+            interactiveMode: IfAvailable
+            provideClusterInfo: true
+  - name: gke_heka-asterix-prod_europe-west1_heka-cluster-20210817074511
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args: null
+            command: gke-gcloud-auth-plugin
+            env: null
+            installHint: Install gke-gcloud-auth-plugin for use with kubectl by following https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin
+            interactiveMode: IfAvailable
+            provideClusterInfo: true
+  - name: gke_sia-devops_europe-west1_common-tooling
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args: null
+            command: gke-gcloud-auth-plugin
+            env: null
+            installHint: Install gke-gcloud-auth-plugin for use with kubectl by following https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl#install_plugin
+            interactiveMode: IfAvailable
+            provideClusterInfo: true
+  - name: heka-obelix-dev
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args:
+              - -c
+              - |-
+                hekactl connect bastion --profile heka-obelix-dev --provider aws --region eu-west-1 --port 43059 > /dev/null;
+                aws --region eu-west-1 eks get-token --cluster-name heka-1699367532 --profile heka-obelix-dev;
+            command: /bin/sh
+            env: null
+            interactiveMode: IfAvailable
+            provideClusterInfo: false
+  - name: heka-obelix-prod
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args:
+              - -c
+              - |-
+                hekactl connect bastion --profile heka-obelix-prod --provider aws --region eu-west-1 --port 51609 > /dev/null;
+                aws --region eu-west-1 eks get-token --cluster-name heka-1695371732 --profile heka-obelix-prod;
+            command: /bin/sh
+            env: null
+            interactiveMode: IfAvailable
+            provideClusterInfo: false
+  - name: prefix-dev
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args:
+              - -c
+              - |-
+                hekactl connect bastion --profile prefix-dev --provider aws --region eu-west-1 --port 34205 > /dev/null;
+                aws --region eu-west-1 eks get-token --cluster-name heka-1762267053 --profile prefix-dev;
+            command: /bin/sh
+            env: null
+            interactiveMode: IfAvailable
+            provideClusterInfo: false
+  - name: stratumn-staging
+    user:
+        exec:
+            apiVersion: client.authentication.k8s.io/v1beta1
+            args:
+              - --region
+              - eu-west-1
+              - eks
+              - get-token
+              - --cluster-name
+              - thor
+              - --output
+              - json
+            command: aws
+            env:
+              - name: AWS_PROFILE
+                value: stratumn-staging
+            interactiveMode: IfAvailable
+            provideClusterInfo: false
