@@ -113,6 +113,12 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Cyberoiide
 Then recreate `~/.config/zsh/secrets.zsh` by hand (it's not in the repo) with the
 current rotated tokens.
 
+Re-register Claude Code MCP servers (`~/.claude.json` is runtime state, not tracked):
+```bash
+claude mcp add affine -- affine-mcp
+claude mcp add --transport http outline https://wiki.sia.partners/mcp
+```
+
 ### System files chezmoi can't track (`/etc`, out of `$HOME`)
 chezmoi only manages paths under `$HOME` — `chezmoi target-path /etc/...` errors
 with "not in ~/.local/share/chezmoi". Anything outside home needs manual redo on a
