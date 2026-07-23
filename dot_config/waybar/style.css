@@ -61,6 +61,7 @@
 #mode,
 #network,
 #custom-keyboard-layout,
+#custom-kube,
 #idle_inhibitor,
 #cpu,
 #memory,
@@ -117,6 +118,13 @@
 
 #network.disconnected {
     color: orange;
+}
+
+#custom-kube.prod {
+    color: white;
+    background-color: red;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 #cpu.warning {

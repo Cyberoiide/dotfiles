@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Material Icon Theme"
+  },
   "ssh_connections": [
     {
       "host": "100.82.25.208",
@@ -22,12 +27,32 @@
           "paths": [
             "/home/claude/private/fightly/./"
           ]
+        },
+        {
+          "paths": [
+            "/home/claude/repos/dts/communities/engineering/squads/kouzy/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/claude/repos/stratumn/k8s/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/claude/repos/stratumn/k8s/cetautomatix/helmfiles/./"
+          ]
+        },
+        {
+          "paths": [
+            "/home/claude/repos/stratumn/stratumn/platform/stratumn/./"
+          ]
         }
       ]
     }
   ],
   "file_types": {
-    "YAML": ["*.yaml.gotmpl", "*.yml.gotmpl", "*.gotmpl"]
+    "YAML": ["*.yaml.gotmpl", "*.yml.gotmpl", "*.gotmpl", "**/.kube/config", "**/.kube/config.*"]
   },
   "vim_mode": false,
   "cli_default_open_behavior": "new_window",
@@ -40,7 +65,7 @@
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
-    "mode": "system",
+    "mode": "light",
     "light": "One Light",
     "dark": "One Dark",
   },
