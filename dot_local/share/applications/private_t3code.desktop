@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=T3 Code (Alpha)
+Exec=/usr/bin/t3code --password-store=gnome-libsecret %U
+Terminal=false
+Type=Application
+Icon=t3code
+StartupWMClass=t3code
+X-AppImage-Version=0.0.28
+Comment=T3 Code desktop build
+Categories=Development;
+MimeType=x-scheme-handler/t3code;
