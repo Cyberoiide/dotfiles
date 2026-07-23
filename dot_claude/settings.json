@@ -21,8 +21,15 @@
       "WebSearch",
       "mcp__plugin_playwright_playwright__*",
       "mcp__plugin_context7_context7__*",
-      "mcp__affine__*"
-    ]
+      "mcp__plugin_linear_linear__*",
+      "mcp__affine__*",
+      "mcp__outline__*",
+      "mcp__playwright__*",
+      "mcp__linear__*",
+      "mcp__grafana__*",
+      "mcp__supabase__*"
+    ],
+    "defaultMode": "default"
   },
   "model": "global.anthropic.claude-fable-5",
   "hooks": {
@@ -86,7 +93,10 @@
     "claude-mem@thedotmack": true,
     "ponytail@ponytail": true,
     "caveman@caveman": true,
-    "workday-formations@claude-do-my-formations": true
+    "workday-formations@claude-do-my-formations": true,
+    "ui-ux-pro-max@ui-ux-pro-max-skill": true,
+    "grafana-mcp@claude-plugins-official": true,
+    "i-have-adhd@i-have-adhd": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -136,7 +146,28 @@
         "source": "github",
         "repo": "Cyberoiide/claude-do-my-formations"
       }
+    },
+    "ui-ux-pro-max-skill": {
+      "source": {
+        "source": "github",
+        "repo": "nextlevelbuilder/ui-ux-pro-max-skill"
+      }
+    },
+    "i-have-adhd": {
+      "source": {
+        "source": "github",
+        "repo": "ayghri/i-have-adhd"
+      }
     }
   },
+  "effortLevel": "high",
+  "pluginConfigs": {
+    "grafana-mcp@claude-plugins-official": {
+      "options": {
+        "grafana_url": "https://grafana.sia.partners/"
+      }
+    }
+  },
+  "skipWorkflowUsageWarning": true,
   "theme": "auto"
 }
