@@ -62,3 +62,15 @@ sso_session = stratumn
 sso_account_id = 983411714382
 sso_role_name = AdministratorAccess
 region = eu-west-1
+
+[profile stratumn-monitoring]
+sso_session = stratumn
+sso_account_id = 491085389141
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile cetautomatix-prod]
+sso_session = stratumn
+sso_account_id = 491085389141
+sso_role_name = AdministratorAccess
+region = eu-west-1

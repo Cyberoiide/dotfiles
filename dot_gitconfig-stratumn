@@ -1,3 +1,7 @@
 [user]
     email = clement.bosle@sia-partners.com
     name = Clément Bosle
+    signingkey = 794885680FB77439
+
+[commit]
+    gpgsign = true
