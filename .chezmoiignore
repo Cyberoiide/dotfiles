@@ -1,3 +1,6 @@
+# Repo docs, never applied to ~
+README.md
+
 .config/zsh/secrets.zsh
 
 # Wallpaper binaries (EndeavourOS defaults, re-downloadable)
@@ -31,3 +34,7 @@
 .claude/ide
 .claude/downloads
 .claude/plans
+
+# blurt runtime state (written every transcription), not config
+.config/blurt/timing.json
+.config/blurt/ui.json
