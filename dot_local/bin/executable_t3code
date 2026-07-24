@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/bin/t3code --password-store=gnome-libsecret "$@"
+exec "$(dirname "$0")/t3code-nightly.AppImage" --password-store=gnome-libsecret "$@"
