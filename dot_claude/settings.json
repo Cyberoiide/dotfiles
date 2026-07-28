@@ -31,7 +31,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "global.anthropic.claude-fable-5",
+  "model": "eu.anthropic.claude-opus-5[1m]",
   "hooks": {
     "PreToolUse": [
       {

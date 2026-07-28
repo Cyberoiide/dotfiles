@@ -91,7 +91,7 @@ contexts:
     name: gke_sia-devops_europe-west1_common-tooling
   - context:
         cluster: heka-obelix-dev
-        namespace: heka-siagpt-website
+        namespace: litellm
         user: heka-obelix-dev
     name: heka-obelix-dev
   - context:
@@ -139,7 +139,7 @@ contexts:
         cluster: arn:aws:eks:eu-west-1:983411714382:cluster/thor
         user: arn:aws:eks:eu-west-1:983411714382:cluster/thor
     name: arn:aws:eks:eu-west-1:983411714382:cluster/thor
-current-context: heka-prefix-dev
+current-context: stratumn-staging
 kind: Config
 users:
   - name: arn:aws:eks:eu-west-1:491085389141:cluster/ctx-1770288676

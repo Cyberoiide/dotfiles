@@ -164,6 +164,11 @@ bastion-ctx() {                # tunnel to cetautomatix bastion via SSM (frees :
   echo "tunnel starting on :1234 (bastion $id)"
 }
 
+sso-that-shit() {
+    aws sso login --sso-session heka
+    aws sso login --sso-session stratumn
+}
+
 # modern cli replacements
 alias ls='eza --group-directories-first'
 alias ll='eza -lah --group-directories-first --git'
