@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [
+    "./plugins/caveman/plugin.js",
+    "./plugins/rtk.ts",
+    "@dietrichgebert/ponytail@4.8.4"
+  ],
+  "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "eu-west-1",
+        "profile": "code-assist-admin"
+      }
+    }
+  },
+  "model": "amazon-bedrock/global.anthropic.claude-fable-5",
+  "small_model": "amazon-bedrock/global.anthropic.claude-haiku-4-5-20251001-v1:0",
+  "mcp": {
+    "affine": {
+      "type": "local",
+      "command": [
+        "affine-mcp"
+      ],
+      "enabled": true
+    }
+  }
+}
