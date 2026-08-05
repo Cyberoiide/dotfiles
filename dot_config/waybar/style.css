@@ -62,6 +62,7 @@
 #network,
 #custom-keyboard-layout,
 #custom-kube,
+#custom-ec2-claude,
 #idle_inhibitor,
 #cpu,
 #memory,
@@ -125,6 +126,27 @@
     background-color: red;
     font-weight: bold;
     border-radius: 5px;
+}
+
+#custom-ec2-claude.healthy {
+    color: #a3be8c;
+}
+
+#custom-ec2-claude.warning {
+    color: orange;
+}
+
+#custom-ec2-claude.critical {
+    color: red;
+    animation-name: blink-critical;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#custom-ec2-claude.offline {
+    color: @highlight;
 }
 
 #cpu.warning {

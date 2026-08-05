@@ -70,6 +70,7 @@
     "modules-right": [
         "custom/keyboard-layout",
         "custom/kube",
+        "custom/ec2-claude",
         "idle_inhibitor",
         "cpu",
         "memory",
@@ -96,6 +97,13 @@
         "return-type": "json",
         "interval": 15,
         "on-click": "footclient -T waybar_kubectx -e kubectx"
+    },
+
+    "custom/ec2-claude": {
+        "exec": "~/.config/waybar/scripts/ec2-claude.sh",
+        "return-type": "json",
+        "interval": 30,
+        "on-click": "footclient -T waybar_claude -e ssh claude-host"
     },
 
     "idle_inhibitor": {
