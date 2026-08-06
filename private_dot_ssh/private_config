@@ -1,0 +1,40 @@
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_github
+    IdentitiesOnly yes
+
+Host git.sia-partners.com
+    HostName git.sia-partners.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_heka_gitlab
+    IdentitiesOnly yes
+
+Host git.sia.partners
+    HostName git.sia.partners
+    user git
+    IdentityFile ~/.ssh/id_ed25519_stratumn_gitlab
+    IdentitiesOnly yes
+
+Host claude-host 100.82.25.208
+    HostName 100.82.25.208
+    User claude
+    IdentityFile ~/.ssh/dellpro.pem
+    IdentitiesOnly yes
+
+Host hetzner 100.82.64.53
+    HostName 100.82.64.53
+    User root
+    IdentityFile ~/.ssh/id_ed25519_hetzner
+    IdentitiesOnly yes
+
+Host pavillon 100.82.208.178
+    HostName 100.82.208.178
+    User bosle
+    IdentityFile ~/.ssh/id_ed25519_pavillon
+    IdentitiesOnly yes
+
+Host hyperion
+    HostName 192.168.0.60
+    User root
+    IdentityFile ~/.ssh/id_ed25519_hyperion
