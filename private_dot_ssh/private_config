@@ -38,3 +38,4 @@ Host hyperion
     HostName 192.168.0.60
     User root
     IdentityFile ~/.ssh/id_ed25519_hyperion
+    IdentitiesOnly yes
