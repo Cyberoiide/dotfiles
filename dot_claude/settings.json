@@ -31,7 +31,7 @@
     ],
     "defaultMode": "default"
   },
-  "model": "eu.anthropic.claude-opus-5[1m]",
+  "model": "global.anthropic.claude-fable-5",
   "hooks": {
     "PostToolUse": [
       {
@@ -181,5 +181,9 @@
     }
   },
   "skipWorkflowUsageWarning": true,
-  "theme": "auto"
+  "theme": "auto",
+  "statusLine": {
+    "type": "command",
+    "command": "i=$(cat); c=$(printf '%s' \"$i\" | bash \"/home/cbosle/.claude/plugins/cache/caveman/caveman/25d22f864ad6/src/hooks/caveman-statusline.sh\" 2>/dev/null); p=$(printf '%s' \"$i\" | bash \"/home/cbosle/.claude/plugins/cache/ponytail/ponytail/4.8.4/hooks/ponytail-statusline.sh\" 2>/dev/null); echo \"$c $p\""
+  }
 }
