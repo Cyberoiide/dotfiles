@@ -16,6 +16,13 @@ profile work {
     exec ~/.azotebg
 }
 
+# QUIETMIND (2nd job): Asus PA278QV 2K on top, laptop below.
+profile quietmind {
+    output "ASUSTek COMPUTER INC PA278QV L4LMQS096283" mode 2560x1440 position 0,0 enable
+    output eDP-1 mode 1920x1200 position 0,1440 enable
+    exec ~/.azotebg
+}
+
 # NOMAD: laptop only, undocked.
 profile nomad {
     output eDP-1 mode 1920x1200 position 0,0 enable
