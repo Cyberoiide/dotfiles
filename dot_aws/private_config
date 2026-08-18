@@ -52,6 +52,13 @@ sso_role_name = AdministratorAccess
 region = eu-west-1
 
 
+[profile lab-eng-dev]
+sso_session = heka
+sso_account_id = 533267323209
+sso_role_name = LabEngDevDataScientist
+region = eu-west-1
+
+
 [sso-session stratumn]
 sso_start_url = https://stratumn.awsapps.com/start
 sso_region = eu-west-1
@@ -72,5 +79,70 @@ region = eu-west-1
 [profile cetautomatix-prod]
 sso_session = stratumn
 sso_account_id = 491085389141
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-release-us]
+sso_session = stratumn
+sso_account_id = 565393064928
+sso_role_name = AdministratorAccess
+region = us-east-1
+[profile stratumn-demo]
+sso_session = stratumn
+sso_account_id = 485211018811
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-logging]
+sso_session = stratumn
+sso_account_id = 254455894602
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-network]
+sso_session = stratumn
+sso_account_id = 220567770081
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-preprod]
+sso_session = stratumn
+sso_account_id = 600454546224
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-preprod-us]
+sso_session = stratumn
+sso_account_id = 345594584737
+sso_role_name = AdministratorAccess
+region = us-east-1
+
+[profile stratumn-release]
+sso_session = stratumn
+sso_account_id = 248744973744
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-sandbox]
+sso_session = stratumn
+sso_account_id = 448017118358
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-security]
+sso_session = stratumn
+sso_account_id = 746236566080
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-shared-services]
+sso_session = stratumn
+sso_account_id = 718636497313
+sso_role_name = AdministratorAccess
+region = eu-west-1
+
+[profile stratumn-gitlab]
+sso_session = stratumn
+sso_account_id = 443370718687
 sso_role_name = AdministratorAccess
 region = eu-west-1
