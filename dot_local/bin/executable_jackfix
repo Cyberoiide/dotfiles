@@ -1,0 +1,16 @@
+#!/bin/sh
+# Workaround for broken cs42l43 jack auto-detect on dellpro (sof-soundwire).
+# jackfix       -> force CTIA headset detect + switch to Headphones/Headset profile
+# jackfix off   -> revert to auto-detect + Speaker/Mic profile
+CARD="alsa_card.pci-0000_00_1f.3-platform-sof_sdw"
+if [ "$1" = "off" ]; then
+    amixer -c 1 cset numid=22 0 >/dev/null   # Jack Override = None
+    sleep 1
+    pactl set-card-profile "$CARD" "HiFi (HDMI1, HDMI2, HDMI3, Mic, Speaker)"
+    echo "jack override off -> speakers"
+else
+    amixer -c 1 cset numid=22 1 >/dev/null   # Jack Override = CTIA
+    sleep 2
+    pactl set-card-profile "$CARD" "HiFi (HDMI1, HDMI2, HDMI3, Headphones, Headset)"
+    echo "jack override CTIA -> headphones + headset mic"
+fi
