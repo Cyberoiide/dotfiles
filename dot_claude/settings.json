@@ -1,11 +1,6 @@
 {
   "awsAuthRefresh": "aws sso login --profile code-assist-admin",
-  "env": {
-    "AWS_REGION": "eu-west-1",
-    "AWS_PROFILE": "code-assist-admin",
-    "CLAUDE_CODE_USE_BEDROCK": "1",
-    "ANTHROPIC_MODEL": "global.anthropic.claude-sonnet-5"
-  },
+  "env": {},
   "permissions": {
     "allow": [
       "Task",
@@ -27,11 +22,12 @@
       "mcp__playwright__*",
       "mcp__linear__*",
       "mcp__grafana__*",
-      "mcp__supabase__*"
+      "mcp__supabase__*",
+      "mcp__dokploy-mcp__*"
     ],
     "defaultMode": "default"
   },
-  "model": "global.anthropic.claude-fable-5",
+  "model": "eu.anthropic.claude-opus-5[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -56,6 +52,10 @@
         ]
       }
     ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "i=$(cat); c=$(printf '%s' \"$i\" | bash \"/home/cbosle/.claude/plugins/cache/caveman/caveman/25d22f864ad6/src/hooks/caveman-statusline.sh\" 2>/dev/null); p=$(printf '%s' \"$i\" | bash \"/home/cbosle/.claude/plugins/cache/ponytail/ponytail/4.8.4/hooks/ponytail-statusline.sh\" 2>/dev/null); a=$(printf '%s' \"$i\" | bash \"$HOME/.local/bin/ccflip-statusline\" 2>/dev/null); echo \"$c $p $a\""
   },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true,
@@ -108,7 +108,8 @@
     "workday-formations@claude-do-my-formations": true,
     "ui-ux-pro-max@ui-ux-pro-max-skill": true,
     "grafana-mcp@claude-plugins-official": true,
-    "i-have-adhd@i-have-adhd": true
+    "i-have-adhd@i-have-adhd": true,
+    "pixel-plugin@pixel-plugin": true
   },
   "extraKnownMarketplaces": {
     "claude-code-plugins": {
@@ -170,6 +171,12 @@
         "source": "github",
         "repo": "ayghri/i-have-adhd"
       }
+    },
+    "pixel-plugin": {
+      "source": {
+        "source": "github",
+        "repo": "willibrandon/pixel-plugin"
+      }
     }
   },
   "effortLevel": "high",
@@ -180,10 +187,7 @@
       }
     }
   },
+  "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
-  "theme": "auto",
-  "statusLine": {
-    "type": "command",
-    "command": "i=$(cat); c=$(printf '%s' \"$i\" | bash \"/home/cbosle/.claude/plugins/cache/caveman/caveman/25d22f864ad6/src/hooks/caveman-statusline.sh\" 2>/dev/null); p=$(printf '%s' \"$i\" | bash \"/home/cbosle/.claude/plugins/cache/ponytail/ponytail/4.8.4/hooks/ponytail-statusline.sh\" 2>/dev/null); echo \"$c $p\""
-  }
+  "theme": "auto"
 }
