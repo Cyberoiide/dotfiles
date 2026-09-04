@@ -38,3 +38,9 @@ README.md
 # blurt runtime state (written every transcription), not config
 .config/blurt/timing.json
 .config/blurt/ui.json
+
+# blurt: API key and local-model timing backup — secrets/state, never tracked
+.config/blurt/openai.key
+.config/blurt/timing.json.local-bak
+.local/lib/blurt-live/__pycache__
+.local/lib/blurt-remote
