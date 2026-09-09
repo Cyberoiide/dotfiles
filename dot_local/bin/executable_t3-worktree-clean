@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Delete stale t3 worktrees. A worktree is only removed when ALL hold:
 #   1. no uncommitted/untracked changes (git status clean)
-#   2. HEAD is contained in a remote branch (nothing unpushed)
+#   2. HEAD is reachable: on a named local branch, or contained in a remote branch
+#      (worktree removal keeps branch refs, so only detached-and-unmerged HEADs risk loss)
 #   3. no file activity in the last IDLE_DAYS days
 # Anything dirty, unpushed, recently used, or unreadable is kept.
 set -u
@@ -18,7 +19,10 @@ for d in "$ROOT"/*/t3code-*; do
   [ -d "$d" ] || continue
   git -C "$d" rev-parse HEAD >/dev/null 2>&1 || continue
   [ -n "$(git -C "$d" status --porcelain 2>/dev/null | head -1)" ] && continue
-  [ -z "$(git -C "$d" branch -r --contains HEAD 2>/dev/null | head -1)" ] && continue
+  # keep only if HEAD is unreachable: not on a named branch AND not in any remote.
+  # removing a worktree does not lose commits on a named branch (ref lives in the
+  # common git dir), so requiring a remote branch here kept never-pushed worktrees forever.
+  if ! git -C "$d" symbolic-ref -q HEAD >/dev/null 2>&1 && [ -z "$(git -C "$d" branch -r --contains HEAD 2>/dev/null | head -1)" ]; then continue; fi
   [ -n "$(find "$d" -maxdepth 2 -mmin "-$idle_min" -print -quit 2>/dev/null)" ] && continue
   gc=$(git -C "$d" rev-parse --git-common-dir 2>/dev/null)
   case " $commons " in *" $gc "*) ;; *) commons="$commons $gc" ;; esac

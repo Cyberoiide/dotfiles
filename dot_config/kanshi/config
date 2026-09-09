@@ -9,17 +9,18 @@ profile home {
     exec ~/.azotebg
 }
 
+# QUIETMIND (2nd job): Asus PA278QV 2K on top, laptop below.
+# Keep this exact monitor match before the generic DP-1 work profile.
+profile quietmind {
+    output "ASUSTek COMPUTER INC PA278QV L4LMQS096283" mode 2560x1440 position 0,0 enable
+    output eDP-1 mode 1920x1200 position 0,1440 enable
+    exec ~/.azotebg
+}
+
 # WORK: LG BL650 on DP-1 top, laptop below.
 profile work {
     output DP-1 mode 1920x1080 position 0,0 enable
     output eDP-1 mode 1920x1200 position 0,1080 enable
-    exec ~/.azotebg
-}
-
-# QUIETMIND (2nd job): Asus PA278QV 2K on top, laptop below.
-profile quietmind {
-    output "ASUSTek COMPUTER INC PA278QV L4LMQS096283" mode 2560x1440 position 0,0 enable
-    output eDP-1 mode 1920x1200 position 0,1440 enable
     exec ~/.azotebg
 }
 
