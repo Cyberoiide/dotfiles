@@ -117,6 +117,10 @@ Re-register Claude Code MCP servers (`~/.claude.json` is runtime state, not trac
 ```bash
 claude mcp add affine -- affine-mcp
 claude mcp add --transport http outline https://wiki.sia.partners/mcp
+# Darkfindr Outline has no dynamic client registration → API-key header, not OAuth.
+# Key comes from secrets.zsh ($OUTLINE_DARKFINDR_API_KEY).
+claude mcp add --scope user --transport http outline-darkfindr https://docs.quiet-mind.io/mcp \
+  -H "Authorization: Bearer $OUTLINE_DARKFINDR_API_KEY"
 ```
 
 ### System files chezmoi can't track (`/etc`, out of `$HOME`)
