@@ -47,8 +47,29 @@ Always set an icon after creating: `update_doc_icon` with an emoji that actually
 **Database blocks** (AFFiNE's in-doc tables, e.g. the Fighty project likely has task/schema tables)
 `read_database_columns` before any write — you need real column names/types. Then `add_database_row` / `update_database_row` (cells validated per column type: `checkbox` bool, `number`, `date` as `YYYY-MM-DD`, `text`). `read_database_cells` to verify after writing. `compose_database_from_intent` is the fast path for building a new table from a plain-language schema description rather than column-by-column calls.
 
-**Debug/incident/troubleshooting notes — always log commands AND outputs**
-Whenever the note documents a debugging session, incident, or any sequence of commands run to investigate/fix something, capture the full trail, not just the conclusion: every command actually run, in its own fenced code block (correct language, usually `bash`), immediately followed by its actual output in its own fenced code block (no language, or `text`) — even when the output is an error, a rejection, or "nothing happened." The point is cbosle being able to re-run the same commands later if a similar problem resurfaces, so paraphrasing a command or summarizing "then I checked X and it failed" instead of showing the real command+output defeats the purpose. Dead ends belong in the note too (e.g. an auth attempt that failed before the working one was found) — they're part of what makes it reproducible next time. Structure as a numbered sequence of steps mirroring the actual investigation order, each step get its command block(s) + output block(s), then a line or two of what it showed/meant. Close with a root-cause summary and a follow-ups section for anything left open.
+**Every note — keep only what's important. Always.**
+Notes are written to be re-read and replicated later, not to record what happened. Short, skimmable, navigable. This is a standing preference, not a per-note choice: never write the long version and wait to be told to cut it.
+
+Keep:
+- **IDs, names, paths, values** needed to redo the thing — put them in a table when there are more than two.
+- **The commands that worked** (written human-style, see below), parameterised with `<placeholders>` so they can be re-run in another account/region, not pasted verbatim from one session.
+- **Gotchas** — the non-obvious traps, one bullet each, stating the rule rather than retelling the episode.
+- **Status / decision** and anything still open, a line each.
+
+Cut:
+- Command *outputs*, unless the exact output is the point (an error string worth grepping, a value that can't be derived). Never paste a large JSON blob or a tool dump.
+- Dead ends and the investigation's chronology — the conclusion replaces them. A wrong turn only earns a line if it's a reusable trap, and then it belongs in Gotchas as a rule.
+- Narration ("then I checked…", "this confirmed that…"), restated headings, and anything inferable from the commands shown.
+
+**Commands — write them the way official documentation does. Always.**
+A person will copy these by hand, so each one must look like what you'd find in the tool's own docs (GitLab, AWS, Ubuntu, kubectl…) and give the same result when they run it. The commands you ran yourself through automation (SSM `send-command`, base64-encoded scripts, polling loops) are not what goes in the note. Translate them into the plain interactive command that does the same thing.
+- One command per line, in the order a person types them. `sudo` when needed. Prefer the vendor's documented command and flags (e.g. `sudo apt-get install gitlab-ee=<version>-ee.0`, `sudo gitlab-rake gitlab:env:info`) over a hand-rolled equivalent.
+- No automation scaffolding: no heredoc-generated scripts, no `base64`, no `while`/`for` polling loops, no `$(date ...)` in names, no `> log 2>&1` / `echo EXIT=$?` wrappers, no `| tr | sed | awk` chains, no `curl -w '%{http_code}'` checks, no `&& echo READY`. If a person would just watch the output or open a page in the browser, say that instead.
+- Long-running steps: say "run it inside `tmux`", the way a person keeps a job alive if the session drops. `systemd-run` or `nohup` only when there is really no interactive shell, and then as a short note.
+- Verification is what a person reads: "every line starts with `run:`", "returns `(0 rows)`", "open https://… and log in".
+- Never document a command you have not checked: it must exist, its flags must be real, and it must work on the target (installed tool, correct path, real output). If you changed it from what you actually ran, verify the new version works the same way (e.g. AWS waiters time out after about 10 min, so show `describe-images … State` to re-check instead).
+
+Structure by **topic**, with `##` headings someone can jump between — not as a numbered replay of the session. If a section doesn't help redo the task or avoid a trap, delete it.
 
 **Writing content — always clean Markdown**
 Every content-writing tool (`create_doc_from_markdown`, `append_markdown`, `replace_doc_with_markdown`, the `markdown` field on `append_block`) parses real Markdown into native AFFiNE blocks, so sloppy input becomes visible junk in the doc, not just an ugly string:
