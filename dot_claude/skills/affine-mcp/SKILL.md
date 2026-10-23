@@ -33,6 +33,8 @@ If a search returns more than one live match, surface the options to the user ra
 **Create a new doc**
 `create_doc_from_markdown` when you already have Markdown content — much less round-tripping than `create_doc` + `append_block` calls. Use `move_doc` afterward if it needs a specific parent in the sidebar tree, and `list_children` to confirm placement.
 
+In the **Sia** workspace, creating a doc is never done on its own — it always ends with a row in the journal table. See "Adding a note to the Sia journal" below and follow it every time.
+
 Always set an icon after creating: `update_doc_icon` with an emoji that actually represents the doc's content/topic (not a generic 📄/📝). Pick from the content itself — a debug/incident note gets 🐛, a k8s note gets ☸️, an AWS cost note gets 💰, etc. Skip only if the user explicitly says not to.
 
 **Edit an existing doc**
@@ -86,6 +88,8 @@ Every content-writing tool (`create_doc_from_markdown`, `append_markdown`, `repl
 
 ## Adding a note to the Sia journal
 
+**Non-negotiable: every doc created in the Sia workspace gets a row in "Journal de plus-stage @ Sia".** No exceptions, no "the user didn't ask for a row", no separate follow-up step — creating the doc and adding the row are one single task, and the task is unfinished until the row exists. This applies to every `/affine-mcp sia` request and to any doc you create in Sia for any other reason.
+
 **This is the primary way notes get added to Sia** — the doc "Journal de plus-stage @ Sia" (`ZJjbIuuHXjXSb78JbJgBL`, workspace `7246fcb1-3ebc-43d3-a274-6b1dee5339f6`) contains a single big database block that is the *only* place cbosle browses notes. A "new note" always means: create the content doc, then add one row to this table linking to it. Never just create a floating doc and forget the row — an unlinked doc is invisible to how this journal is actually used.
 
 Database block ID: `b3GBxWd-N1`. Columns (from `read_database_columns`):
@@ -112,7 +116,7 @@ Steps:
      - `Links`: only set when the note itself references an external URL (a PR, dashboard, ticket, doc link); leave unset for self-contained notes
      - `Category`: see tagging rules below
      - `Title`: leave blank/omit, matching the existing convention
-3. Optionally verify with `read_database_cells` on the new row.
+3. **Verify with `read_database_cells`** on the new row block ID, and check the returned `linkedDocId` matches the doc from step 1. Do this before telling the user the note is written — a row whose link silently didn't attach looks identical to no row at all in the journal.
 
 ### Tagging rules (Category column)
 
@@ -129,3 +133,4 @@ Good: a note about debugging a CrashLoopBackOff in an EKS pod caused by a missin
 - **`search_docs` caps at 20 results by default** (raise `limit`, max not fixed but keep it reasonable) and is always case-insensitive; `find_doc_by_title` is the one to reach for when you need an exhaustive exact-title match (case-sensitive by default, up to 200).
 - **Edgeless canvas and surface elements** (shapes, connectors, frames on a whiteboard-style doc) are a separate tool family (`get_edgeless_canvas`, `add_surface_element`, `update_frame_children`, etc.) — only relevant if the doc is edgeless-mode, not a normal page. Check `get_doc`/`read_doc` first; don't reach for these unless the content is actually canvas-based.
 - **Destructive tools** (`delete_doc`, `delete_workspace`, `delete_folder`, `delete_tag`, `delete_blob`, `delete_comment`, `delete_database_row`, `revoke_access_token`) — confirm with the user before calling, same as any other irreversible action.
+- **`get_orphan_docs` is not the way to check journal linkage.** It only counts embed/inline doc references, not database-row links, so every doc reached through the journal table shows up as an orphan — 276 of them in Sia, the journal doc itself included. To confirm a note is properly filed, use `read_database_cells` on its row and check `linkedDocId`, never the orphan list.
