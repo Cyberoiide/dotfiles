@@ -44,3 +44,16 @@ README.md
 .config/blurt/timing.json.local-bak
 .local/lib/blurt-live/__pycache__
 .local/lib/blurt-remote
+
+# claude-host (cloud EC2, user "claude"): only the shared affine-mcp skill.
+# Everything else here (ssh, aws, kube, zsh, sway…) is laptop-only.
+{{- if eq .chezmoi.username "claude" }}
+*
+.*
+.claude/*
+.claude/skills/*
+!.claude
+!.claude/skills
+!.claude/skills/affine-mcp
+!.claude/skills/affine-mcp/**
+{{- end }}
