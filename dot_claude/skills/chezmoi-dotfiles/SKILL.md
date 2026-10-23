@@ -123,6 +123,21 @@ claude mcp add --scope user --transport http outline-darkfindr https://docs.quie
   -H "Authorization: Bearer $OUTLINE_DARKFINDR_API_KEY"
 ```
 
+### claude-host (cloud EC2) — skills only
+claude-host (`ssh claude-host`, user `claude`) also runs chezmoi on this repo, but a
+`{{ if eq .chezmoi.username "claude" }}` block in `.chezmoiignore` limits it to
+`~/.claude/skills/affine-mcp`. The laptop's `.ssh`, `.aws`, `.kube`, `.zshrc` never
+land there. To share another skill, add `!.claude/skills/<name>` and
+`!.claude/skills/<name>/**` to that block.
+
+After pushing from the laptop, update the host:
+```bash
+ssh claude-host
+chezmoi update
+```
+Its `~/.config/chezmoi/chezmoi.toml` sets `umask = 0o022` (the host's default umask
+would make `~/.claude` group-writable).
+
 ### System files chezmoi can't track (`/etc`, out of `$HOME`)
 chezmoi only manages paths under `$HOME` — `chezmoi target-path /etc/...` errors
 with "not in ~/.local/share/chezmoi". Anything outside home needs manual redo on a
