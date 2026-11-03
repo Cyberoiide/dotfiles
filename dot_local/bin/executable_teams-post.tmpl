@@ -1,0 +1,65 @@
+{{- if eq .chezmoi.username "claude" -}}
+#!/usr/bin/env node
+// Post a message to a Teams conversation through the local teams-lite backend.
+// usage: teams-post <conversation-id> <text> [html]
+const fs = require("fs");
+const [conv, text, html] = process.argv.slice(2);
+if (!conv || !text) { console.error("usage: teams-post <conversation-id> <text> [html]"); process.exit(2); }
+const port = process.env.TEAMS_LITE_PORT || "19420";
+const die = (m) => { console.error(`teams-post: ${m}`); process.exit(1); };
+
+// The launcher pins the backend's write token in its env and mints a new one per
+// restart, so read it from the running backend rather than a file that goes stale.
+function writeToken() {
+  if (process.env.TEAMS_LITE_WRITE_TOKEN) return process.env.TEAMS_LITE_WRITE_TOKEN;
+  for (const pid of fs.readdirSync("/proc").filter((p) => /^\d+$/.test(p))) {
+    let env;
+    try { env = fs.readFileSync(`/proc/${pid}/environ`, "utf8").split("\0"); } catch { continue; }
+    if (!env.includes(`TEAMS_LITE_PORT=${port}`)) continue;
+    const t = env.find((e) => e.startsWith("TEAMS_LITE_WRITE_TOKEN="));
+    if (t) return t.split("=")[1];
+  }
+  die(`no running teams-lite backend on port ${port}`);
+}
+
+const params = { conversation: conv, text, write_token: writeToken(), ...(html && { content_html: html }) };
+const ws = new WebSocket(`ws://127.0.0.1:${port}`);
+setTimeout(() => die("timed out"), 30000);
+ws.onerror = (e) => die(e.message || "websocket error");
+ws.onopen = () => ws.send(JSON.stringify({ id: 1, method: "send", params }));
+ws.onmessage = ({ data }) => {
+  const m = JSON.parse(data);
+  if (m.id !== 1) return; // backend also pushes events
+  if (m.error) die(m.error);
+  console.log(JSON.stringify(m.result));
+  process.exit(0);
+};
+{{- else -}}
+#!/usr/bin/env bash
+# Laptop proxy for claude-host:~/.local/bin/teams-post (teams-lite only runs there).
+# usage: teams-post <conversation-id> <text> [html]
+set -uo pipefail
+
+ssh -o ConnectTimeout=5 -o BatchMode=yes claude-host "~/.local/bin/teams-post $(printf '%q ' "$@")"
+rc=$?
+# 255 = ssh never reached the host. Any other code came from teams-post itself,
+# so retrying would risk a double post.
+[ "$rc" -ne 255 ] && exit "$rc"
+
+# ponytail: SSM fallback for when NetBird is logged out; drop it if NetBird stays up.
+echo "teams-post: ssh unreachable, falling back to SSM" >&2
+ID=i-0d765ce61c9c5c39b
+AWS=(aws --profile code-assist-admin --region eu-west-3)
+cmd="sudo -u claude HOME=/home/claude /home/claude/.local/bin/teams-post $(printf '%q ' "$@")"
+cid=$("${AWS[@]}" ssm send-command --instance-ids "$ID" --document-name AWS-RunShellScript \
+  --parameters "commands=[\"echo $(base64 -w0 <<<"$cmd") | base64 -d | bash\"]" \
+  --query Command.CommandId --output text) || exit 1
+for _ in $(seq 30); do
+  sleep 2
+  st=$("${AWS[@]}" ssm get-command-invocation --command-id "$cid" --instance-id "$ID" --query Status --output text 2>/dev/null)
+  case "$st" in Pending|InProgress|Delayed|"") ;; *) break ;; esac
+done
+"${AWS[@]}" ssm get-command-invocation --command-id "$cid" --instance-id "$ID" \
+  --query '[StandardOutputContent,StandardErrorContent]' --output text
+[ "$st" = Success ]
+{{- end }}

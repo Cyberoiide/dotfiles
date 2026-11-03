@@ -1,0 +1,29 @@
+{{- if eq .chezmoi.username "claude" -}}
+#!/usr/bin/env python3
+# Find the latest message in a Teams conversation that links a given MR.
+# usage: teams-mr-posted <conversation-id> <mr-web-url>
+# Prints "<message_id> <local time> <sender>" and exits 0 if found, exits 1 if not.
+import datetime, os, re, sqlite3, sys
+
+conv, url = sys.argv[1], sys.argv[2].rstrip("/")
+db = sqlite3.connect(os.path.expanduser("~/.local/share/teams-lite/teams-lite.sqlite"))
+# \D boundary so merge_requests/80 does not match merge_requests/803.
+link = re.compile(re.escape(url) + r"(?!\d)")
+rows = db.execute(
+    "select id, compose_time, sender, content from messages"
+    " where conversation_id = ? and deleted = 0 and content like ? order by compose_time desc",
+    (conv, f"%{url}%"),
+)
+for mid, ts, sender, content in rows:
+    if link.search(content):
+        when = datetime.datetime.fromtimestamp(ts / 1000).strftime("%Y-%m-%d %H:%M")
+        print(mid, when, sender)
+        sys.exit(0)
+sys.exit(1)
+{{- else -}}
+#!/usr/bin/env bash
+# Laptop proxy for claude-host:~/.local/bin/teams-mr-posted (the teams-lite history only lives there).
+# usage: teams-mr-posted <conversation-id> <mr-web-url>
+# Read-only, so no SSM fallback: exit 255 means ssh could not reach the host.
+exec ssh -o ConnectTimeout=5 -o BatchMode=yes claude-host "~/.local/bin/teams-mr-posted $(printf '%q ' "$@")"
+{{- end }}

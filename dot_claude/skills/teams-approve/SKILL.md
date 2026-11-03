@@ -5,7 +5,11 @@ description: Offer to post "plss approve <MR link>" to the "St🐀umn Core" Team
 
 # Ask Stratumn Core to approve an MR
 
-Teams is reached through teams-lite on claude-host. `teams-post` exists on both machines: on the laptop it proxies to claude-host over SSH, then falls back to SSM.
+teams-lite runs on claude-host. The two helpers below have the same name and arguments on both machines (chezmoi installs the right version per host):
+- on claude-host they talk to teams-lite directly (local websocket + local sqlite),
+- on the laptop they forward to claude-host over SSH; `teams-post` falls back to SSM if SSH is down.
+
+So run the commands as written, wherever you are. Never wrap them in `ssh claude-host` yourself.
 
 ## When
 
@@ -35,12 +39,13 @@ A `running`, `manual` or `null` pipeline is fine.
 ## 2. Check if it was already posted
 
 ```bash
-ssh claude-host "~/.local/bin/teams-mr-posted '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' '<web_url>'"
+~/.local/bin/teams-mr-posted '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' '<web_url>'
 ```
 
-(On claude-host itself, drop the `ssh claude-host`.) It searches the whole chat history in teams-lite, from anyone.
+It searches the whole chat history in teams-lite, from anyone.
 - exit 0, prints `<message_id> <date> <sender>`: already posted → this is a **re-ping**.
 - exit 1: never posted → this is a **first ask**.
+- exit 255 (laptop only): SSH to claude-host is down, so you cannot tell. Say so; do not post.
 
 ## 3. Ask cbosle
 
@@ -58,14 +63,14 @@ Post only on an explicit yes ("oui", "yes", "go", "vas-y"). Anything else: do no
 
 First ask:
 ```bash
-teams-post '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' \
+~/.local/bin/teams-post '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' \
   "plss approve <web_url>" \
   'plss approve <a href="<web_url>">!<iid> <title></a>'
 ```
 
 Re-ping:
 ```bash
-teams-post '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' \
+~/.local/bin/teams-post '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' \
   "up 🙏 plss approve <web_url>" \
   'up 🙏 plss approve <a href="<web_url>">!<iid> <title></a>'
 ```
