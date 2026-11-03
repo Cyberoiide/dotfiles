@@ -126,9 +126,11 @@ claude mcp add --scope user --transport http outline-darkfindr https://docs.quie
 ### claude-host (cloud EC2) — skills only
 claude-host (`ssh claude-host`, user `claude`) also runs chezmoi on this repo, but a
 `{{ if eq .chezmoi.username "claude" }}` block in `.chezmoiignore` limits it to
-`~/.claude/skills/affine-mcp`. The laptop's `.ssh`, `.aws`, `.kube`, `.zshrc` never
-land there. To share another skill, add `!.claude/skills/<name>` and
-`!.claude/skills/<name>/**` to that block.
+the `affine-mcp` and `teams-approve` skills plus `~/.local/bin/teams-post` and
+`teams-mr-posted`. The laptop's `.ssh`, `.aws`, `.kube`, `.zshrc` never land there.
+To share another skill, add `!.claude/skills/<name>` and `!.claude/skills/<name>/**`
+to that block. A file that must differ per host is a `.tmpl` with
+`{{ if eq .chezmoi.username "claude" }}` (see `executable_teams-post.tmpl`).
 
 After pushing from the laptop, update the host:
 ```bash
