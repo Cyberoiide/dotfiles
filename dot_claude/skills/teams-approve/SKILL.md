@@ -1,6 +1,6 @@
 ---
 name: teams-approve
-description: Offer to post "plss approve <MR link>" to the "St🐀umn Core" Teams group chat once you judge a GitLab MR cbosle owns is ready for approval — all review threads resolved, all requested changes done, the discussion with cbosle finished. Always ask cbosle first and post only after an explicit yes. Also use when cbosle says "ask for approval", "ping the team", "send it to stratumn core". Never for Draft MRs, MRs with unresolved threads, or MRs with a failed pipeline.
+description: Offer to post "plss approve <MR link>" to the "St🐀umn Core" Teams group chat once you judge a GitLab MR cbosle owns is ready for approval — all review threads resolved, all requested changes done, the discussion with cbosle finished. Always ask cbosle first and post only after an explicit yes. Also use when cbosle says "ask for approval", "ping the team", "send it to stratumn core". Never for Draft MRs, MRs with unresolved threads, MRs with a failed pipeline, or MRs that need no approval from someone else (repo requires 0 approvals, or cbosle can approve it himself).
 ---
 
 # Ask Stratumn Core to approve an MR
@@ -36,7 +36,21 @@ Not ready (say why, do not offer to post) if:
 
 A `running`, `manual` or `null` pipeline is fine.
 
-## 2. Check if it was already posted
+## 2. Check if someone else's approval is needed
+
+Some repos need 0 approvals (terraform-shared-services, for example). Pinging the team for those wastes their time.
+
+```bash
+glab api --hostname git.sia.partners \
+  "projects/<url-encoded group/project or id>/merge_requests/<iid>/approvals" \
+  | jq '{approvals_required, approvals_left, approved, user_can_approve}'
+```
+
+- `approvals_left` is `0`: no approval needed. Do not offer to post. Tell cbosle in one line: "!<iid> needs no approval (repo requires <approvals_required>). Merge it yourself."
+- `user_can_approve` is `true`: cbosle can approve it himself. Tell him that instead of offering to post: "!<iid>: you can approve it yourself (`glab mr approve <iid> -R …`)." Offer to post only if `approvals_left` is still above 0 after his approval.
+- Otherwise (`approvals_left` > 0, `user_can_approve` is `false`): someone else must approve. Go to step 3.
+
+## 3. Check if it was already posted
 
 ```bash
 ~/.local/bin/teams-mr-posted '19:21d2695ae8ff4e25ace9c662e5c326cb@thread.v2' '<web_url>'
@@ -47,7 +61,7 @@ It searches the whole chat history in teams-lite, from anyone.
 - exit 1: never posted → this is a **first ask**.
 - exit 255 (laptop only): SSH to claude-host is down, so you cannot tell. Say so; do not post.
 
-## 3. Ask cbosle
+## 4. Ask cbosle
 
 One line, then stop and wait.
 
@@ -59,7 +73,7 @@ Re-ping:
 
 Post only on an explicit yes ("oui", "yes", "go", "vas-y"). Anything else: do not post. Ask once per MR per session; if cbosle says no, do not ask again unless the MR changes.
 
-## 4. Post it
+## 5. Post it
 
 First ask:
 ```bash
