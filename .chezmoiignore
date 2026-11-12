@@ -65,3 +65,6 @@ README.md
 !.local/bin/teams-post
 !.local/bin/teams-mr-posted
 {{- end }}
+
+# own git repo: github.com/Cyberoiide/tiktok-to-maps
+.claude/skills/tiktok-to-maps
