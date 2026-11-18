@@ -3,5 +3,4 @@ Description=Keep the AWS SSO session fresh for Bedrock
 
 [Service]
 Type=oneshot
-Environment=SSO_GUARD_BROWSER=heka
 ExecStart=%h/.local/bin/sso-guard
