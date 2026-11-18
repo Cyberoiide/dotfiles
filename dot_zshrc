@@ -186,9 +186,8 @@ bastion() {                    # tunnel to a bastion via SSM; usage: bastion <ct
   echo "tunnel starting on :${port} (bastion $id)"
 }
 
-sso-that-shit() {
-    aws sso login --sso-session heka
-    aws sso login --sso-session stratumn
+sso-that-shit() {               # every SSO_GUARD_SESSIONS session at once (policy.env); or name some
+    sso-guard login "$@"
 }
 
 # Automatic AWS SSO refresh: off for personal use, on for work (persists across reboots).
