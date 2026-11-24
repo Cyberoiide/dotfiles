@@ -123,11 +123,13 @@ claude mcp add --scope user --transport http outline-darkfindr https://docs.quie
   -H "Authorization: Bearer $OUTLINE_DARKFINDR_API_KEY"
 ```
 
-### claude-host (cloud EC2) — skills only
+### claude-host (cloud EC2)
 claude-host (`ssh claude-host`, user `claude`) also runs chezmoi on this repo, but a
-`{{ if eq .chezmoi.username "claude" }}` block in `.chezmoiignore` limits it to
-the `affine-mcp` and `teams-approve` skills plus `~/.local/bin/teams-post` and
-`teams-mr-posted`. The laptop's `.ssh`, `.aws`, `.kube`, `.zshrc` never land there.
+`{{ if eq .chezmoi.username "claude" }}` block in `.chezmoiignore` allows
+the `affine-mcp` and `teams-approve` skills and their Teams helpers. It also
+seeds `~/.zshenv` and `~/.claude/settings.json` when absent. Edit the respective
+settings defaults in `.chezmoitemplates/claude-settings-*.json`. The laptop's
+`.ssh`, `.aws`, `.kube` and `.zshrc` are excluded from the EC2 profile.
 To share another skill, add `!.claude/skills/<name>` and `!.claude/skills/<name>/**`
 to that block. A file that must differ per host is a `.tmpl` with
 `{{ if eq .chezmoi.username "claude" }}` (see `executable_teams-post.tmpl`).
