@@ -52,8 +52,13 @@ README.md
 .claude/*
 .claude/skills/*
 !.claude
+# Seed these defaults only when missing, including preserving existing modes.
+{{- if not (lstat (joinPath .chezmoi.destDir ".claude/settings.json")) }}
 !.claude/settings.json
+{{- end }}
+{{- if not (lstat (joinPath .chezmoi.destDir ".zshenv")) }}
 !.zshenv
+{{- end }}
 !.claude/skills
 !.claude/skills/affine-mcp
 !.claude/skills/affine-mcp/**
