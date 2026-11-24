@@ -1,0 +1,10 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- if eq .chezmoi.username "claude" -}}
+  {{- if .chezmoi.stdin -}}
+    {{- .chezmoi.stdin -}}
+  {{- else -}}
+    {{- include ".chezmoitemplates/claude-settings-ec2.json" -}}
+  {{- end -}}
+{{- else -}}
+  {{- include ".chezmoitemplates/claude-settings-laptop.json" -}}
+{{- end -}}

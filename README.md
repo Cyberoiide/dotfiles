@@ -13,6 +13,13 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply Cyberoiide
 This clones the repo into `~/.local/share/chezmoi` and applies every tracked
 file into `$HOME` in one step.
 
+### Claude EC2 host
+
+The `claude` account gets a small profile through `.chezmoiignore`. It seeds
+`~/.zshenv` and `~/.claude/settings.json` on a fresh host. The settings template
+preserves existing settings and uses Bedrock defaults for a fresh file. Shared
+skills and their helpers follow the usual `chezmoi update` workflow.
+
 ### After first apply
 
 1. **Recreate secrets** — `~/.config/zsh/secrets.zsh` is intentionally not in

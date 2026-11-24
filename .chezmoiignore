@@ -45,14 +45,15 @@ README.md
 .local/lib/blurt-live/__pycache__
 .local/lib/blurt-remote
 
-# claude-host (cloud EC2, user "claude"): only the shared skills and their helpers.
-# Everything else here (ssh, aws, kube, zsh, sway…) is laptop-only.
+# claude-host gets its own shell and Claude Code defaults and the shared skills.
 {{- if eq .chezmoi.username "claude" }}
 *
 .*
 .claude/*
 .claude/skills/*
 !.claude
+!.claude/settings.json
+!.zshenv
 !.claude/skills
 !.claude/skills/affine-mcp
 !.claude/skills/affine-mcp/**
@@ -64,6 +65,8 @@ README.md
 !.local/bin
 !.local/bin/teams-post
 !.local/bin/teams-mr-posted
+{{- else }}
+.zshenv
 {{- end }}
 
 # own git repo: github.com/Cyberoiide/tiktok-to-maps
